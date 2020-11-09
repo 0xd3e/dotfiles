@@ -1,0 +1,21 @@
+---
+- name: Check if Karabiner is installed
+  stat:
+    path: /Library/Application Support/org.pqrs/Karabiner-Elements
+  register: _karabiner_installed
+
+- name: Fail if Karabiner is not installed
+  fail:
+    msg: It seems Karabiner is not installed, please install it first.
+  when: not _karabiner_installed.stat.exists
+
+- name: Create configuration directory
+  file:
+    path: '{{ home }}/.config/karabiner'
+    state: directory
+
+- name: Copy configuration files
+  copy:
+    src: './files/'
+    dest: '{{ home }}/.config/karabiner/'
+    backup: '{{ create_backups }}'

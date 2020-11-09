@@ -1,0 +1,6 @@
+---
+- name: Install fzy
+  macports:
+    name: fzy
+    state: present
+  become: true

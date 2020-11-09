@@ -1,0 +1,6 @@
+---
+- name: Install fonts
+  get_url:
+    url: '{{ item.url }}'
+    dest: '{{ home }}/Library/Fonts/{{ item.filename }}'
+  loop: '{{ fonts }}'

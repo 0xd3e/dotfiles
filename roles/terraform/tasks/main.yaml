@@ -1,0 +1,12 @@
+---
+- name: Install Terraform
+  macports:
+    name: '{{ terraform_port }}'
+    state: present
+  become: true
+
+- name: Copy configuration
+  copy:
+    src: 'terraformrc'
+    dest: '{{ home }}/.terraformrc'
+    backup: '{{ create_backups }}'

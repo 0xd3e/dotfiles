@@ -1,0 +1,77 @@
+{{ ansible_managed | comment }}
+
+#
+# Completion
+#
+
+autoload -Uz compinit
+compinit
+
+# Case-insensitive matching
+zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}'
+
+#
+# Plugins
+#
+
+{% for plugin in zsh_plugins %}
+{% set plugin_name = (plugin.repo | urlsplit("path") | basename | splitext)[0] %}
+source {{ zsh_plugin_directory }}/{{ plugin_name }}/{{ plugin.source_file }}
+{% endfor %}
+
+#
+# History Options
+#
+
+HISTSIZE="10000"
+SAVEHIST="10000"
+HISTFILE="$HOME/.zsh_history"
+
+setopt HIST_FCNTL_LOCK
+setopt HIST_IGNORE_DUPS
+setopt HIST_IGNORE_SPACE
+setopt SHARE_HISTORY
+setopt EXTENDED_HISTORY
+
+#
+# Key Bindings
+#
+
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
+bindkey '^[^[[D' backward-word
+bindkey '^[^[[C' forward-word
+
+#
+# Environment Variables
+#
+
+export GOPATH='{{ home }}/Development/Go'
+export LANG=en_US.UTF-8
+export EDITOR=nvim
+export ENHANCD_FILTER=fzy
+export SSH_AUTH_SOCK=$($(which gpgconf) --list-dirs agent-ssh-socket)
+
+# PATH
+export PATH=$HOME/.cargo/bin:$PATH
+export PATH=$HOME/.local/bin:$PATH
+
+#
+# Aliases
+#
+
+{% for alias in zsh_aliases | dict2items %}
+alias {{ alias.key }}="{{ alias.value }}"
+{% endfor %}
+
+#
+# Broot
+#
+
+source {{ home }}/.config/broot/launcher/zsh/br
+
+#
+# Starship Prompt
+#
+
+eval "$(starship init zsh)"

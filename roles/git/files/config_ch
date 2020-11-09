@@ -1,0 +1,5 @@
+[commit]
+	gpgSign = false
+
+[user]
+	email = "d.trautmann@cloudandheat.com"

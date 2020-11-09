@@ -1,0 +1,59 @@
+---
+- name: Install Neovim
+  macports:
+    name: neovim
+    state: present
+  become: true
+
+- name: Install Node.js provider
+  npm:
+    name: neovim
+    version: '4.9.0'
+    path: '{{ home }}/.local/share/nvim/provider/nodejs'
+    production: true
+    state: present
+
+- name: Get installed packages
+  find:
+    paths: '{{ home }}/.local/share/nvim/site/pack'
+    depth: 1
+    file_type: directory
+  register: _neovim_installed_packages
+
+- name: Cleanup unused packages
+  file:
+    path: '{{ item }}'
+    state: absent
+  when: item | basename not in neovim_packages | map(attribute="repo") | list | map("regex_replace", "^.*/(.*)\.git$", "\\1")
+  loop: '{{ _neovim_installed_packages.files | map(attribute="path") | list }}'
+
+- name: Clone plugins
+  git:
+    repo: '{{ item.repo }}'
+    dest: '{{ item.is_plugin | ternary(home + "/.local/share/nvim/site/pack/" + (item.repo | urlsplit("path") | basename | splitext)[0] + "/start/" + (item.repo | urlsplit("path") | basename | splitext)[0], home + "/.local/share/nvim/site/pack/" + (item.repo | urlsplit("path") | basename | splitext)[0]) }}'
+    #    dest: '{{ home }}/.local/share/nvim/site/pack/{{ (item.repo | urlsplit("path") | basename | splitext)[0] }}/start/{{ (item.repo | urlsplit("path") | basename | splitext)[0] }}'
+    version: '{{ item.version }}'
+  loop: '{{ neovim_packages  }}'
+
+- name: Install coc extensions
+  shell:
+    cmd: nvim -c 'CocInstall -sync {{ item }}|q'
+    creates: '{{ home }}/.config/coc/extensions/node_modules/{{ item }}'
+  loop: '{{ neovim_coc_extensions }}'
+
+- name: Create config directory
+  file:
+    path: '{{ home }}/.config/nvim'
+    state: directory
+
+- name: Write init.vim
+  template:
+    src: init.vim.j2
+    dest: '{{ home }}/.config/nvim/init.vim'
+    backup: '{{ create_backups }}'
+
+- name: Copy configuration files
+  copy:
+    src: './files/'
+    dest: '{{ home }}/.config/nvim/'
+    backup: '{{ create_backups }}'

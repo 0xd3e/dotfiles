@@ -1,0 +1,21 @@
+---
+neovim_packages:
+  - repo: https://github.com/neoclide/coc.nvim.git
+    version: release
+    is_plugin: true
+  - repo: https://github.com/itchyny/lightline.vim.git
+    version: master
+    is_plugin: true
+  - repo: https://github.com/mengelbrecht/lightline-bufferline.git
+    version: master
+    is_plugin: true
+  - repo: https://github.com/machakann/vim-sandwich.git
+    version: master
+    is_plugin: true
+  - repo: https://github.com/NLKNguyen/papercolor-theme.git
+    version: master
+    is_plugin: true
+
+neovim_coc_extensions:
+  - coc-lists
+  - coc-pairs

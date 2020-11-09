@@ -1,0 +1,22 @@
+---
+- name: Install tmux
+  macports:
+    name: tmux
+    state: present
+  become: true
+
+- name: Write tmux.conf
+  copy:
+    src: 'tmux.conf'
+    dest: '{{ home }}/.tmux.conf'
+    backup: '{{ create_backups }}'
+
+- name: Check if terminfo for tmux is available
+  shell:
+    cmd: infocmp tmux-256color
+  register: _tmux_terminfo_status
+
+- name: Install terminfo tmux-256color
+  shell:
+    cmd: 'tic -xe tmux-256color {{ role_path }}/files/tmux-256color.info'
+  when: _tmux_terminfo_status.rc == 1

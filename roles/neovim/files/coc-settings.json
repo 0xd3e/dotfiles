@@ -1,0 +1,26 @@
+{
+	"coc.preferences.formatOnSaveFiletypes": ["go"],
+	"diagnostic.virtualText": true,
+	"languageserver": {
+		"golang": {
+			"command": "gopls",
+			"args": [],
+			"rootPatterns": ["go.mod"],
+			"filetypes": ["go"],
+			"initializationOptions": {
+				"completeUnimported": true,
+				"usePlaceholders": true
+			}
+		},
+		"rust": {
+			"command": "rust-analyzer",
+			"rootPatterns": ["Cargo.toml"],
+			"filetypes": ["rust"]
+		}
+	},
+	"suggest.autoTrigger": "always",
+	"suggest.enablePreselect": true,
+	"suggest.fixInsertedWord": true,
+	"suggest.minTriggerInputLength": 2,
+	"suggest.noselect": false
+}

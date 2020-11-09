@@ -1,0 +1,16 @@
+---
+- name: Install packages
+  macports:
+    name: '{{ item }}'
+    state: present
+  become: true
+  loop:
+    - cargo
+    - rust
+    - rust-src
+
+- name: Download rust-analyzer
+  get_url:
+    url: 'https://github.com/rust-analyzer/rust-analyzer/releases/download/{{ rust_analyzer_version }}/rust-analyzer-mac'
+    dest: '{{ home }}/.local/bin/rust-analyzer'
+    mode: u=rx,g=r,o=r

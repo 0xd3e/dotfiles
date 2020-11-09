@@ -1,0 +1,42 @@
+---
+- hosts: localhost
+  vars:
+    home: '{{ ansible_env.HOME }}'
+    create_backups: true
+  tasks:
+    - name: Install packages
+      macports:
+        name: '{{ item }}'
+        state: present
+      become: true
+      loop:
+        - 1password-cli
+        - avr-gcc # Needed for QMK Firmware
+        - avr-libc # Needed for QMK Firmware
+        - bazel
+        - fzf
+        - kubectl-1.19
+        - kustomize
+        - minikube
+        - py-ansible
+        - restic
+        - tree
+        - yarn
+        - youtube-dl
+
+  roles:
+    - fonts
+    - starship
+    - zsh
+    - neovim
+    - tmux
+    - gnupg
+    - git
+    - ssh
+    - karabiner
+    - tower
+    - go
+    - rust
+    - bat
+    - broot
+    - terraform
