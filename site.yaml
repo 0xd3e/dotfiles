@@ -38,6 +38,7 @@
     - tower
     - go
     - rust
+    - buf
     - bat
     - broot
     - terraform
