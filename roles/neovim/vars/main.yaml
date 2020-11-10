@@ -19,3 +19,5 @@ neovim_packages:
 neovim_coc_extensions:
   - coc-lists
   - coc-pairs
+  - coc-deno
+  - coc-tsserver
