@@ -14,7 +14,6 @@
         - avr-gcc # Needed for QMK Firmware
         - avr-libc # Needed for QMK Firmware
         - bazel
-        - deno
         - fzf
         - kubectl-1.19
         - kustomize
