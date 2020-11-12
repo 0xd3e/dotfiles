@@ -93,6 +93,11 @@ disabled = true
 [nix_shell]
 disabled = true
 
+[nodejs]
+format = "[ $symbol$version ]($style)"
+style = "fg:cyan"
+symbol = " "
+
 [package]
 disabled = true
 
