@@ -20,7 +20,6 @@ set signcolumn=yes             " Always show the signcolumn
 set splitbelow                 " Add new window below the current one for horizontal split
 set splitright                 " Add new window right of the current one for vertical split
 set updatetime=300             " Coc: Longer updatetime leads to poor user experience
-set whichwrap+=<,>             " Let left and right arrow keys move to previous / next line
 
 """ Coloring Stuff
 set termguicolors              " Enable 24-bit RGB color
