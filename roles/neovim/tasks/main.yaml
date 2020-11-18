@@ -35,12 +35,6 @@
     version: '{{ item.version }}'
   loop: '{{ neovim_packages  }}'
 
-- name: Install coc extensions
-  shell:
-    cmd: nvim -c 'CocInstall -sync {{ item }}|q'
-    creates: '{{ home }}/.config/coc/extensions/node_modules/{{ item }}'
-  loop: '{{ neovim_coc_extensions }}'
-
 - name: Create config directory
   file:
     path: '{{ home }}/.config/nvim'

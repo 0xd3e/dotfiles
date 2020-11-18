@@ -166,8 +166,16 @@ let g:lightline#bufferline#filename_modifier = ':t' " Show only filename
 " coc.nvim Customization
 "
 
-" Highlight the symbol and its references when holding the cursor.
+""" Highlight the symbol and its references when holding the cursor.
 autocmd CursorHold * silent call CocActionAsync('highlight')
+
+""" Extensions to install
+let g:coc_global_extensions = [
+	\ 'coc-html',
+	\ 'coc-lists',
+	\ 'coc-pairs',
+	\ 'coc-tsserver',
+	\ ]
 
 "
 " Language specific settings

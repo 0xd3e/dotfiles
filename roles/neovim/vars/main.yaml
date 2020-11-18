@@ -15,8 +15,3 @@ neovim_packages:
   - repo: https://github.com/NLKNguyen/papercolor-theme.git
     version: master
     is_plugin: true
-
-neovim_coc_extensions:
-  - coc-lists
-  - coc-pairs
-  - coc-tsserver
