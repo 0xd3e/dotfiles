@@ -116,6 +116,13 @@ nnoremap <silent><nowait>    <space>d     :CocDiagnostics<cr>
 nnoremap <silent><nowait>    <space>lf    :<C-u>CocList files<cr>
 nnoremap <silent><nowait>    <space>lb    :<C-u>CocList buffers<cr>
 
+""" Use Tab to select completion item
+inoremap <expr><Tab> pumvisible() ? "\<C-n>" : "\<Tab>"
+inoremap <expr><S-Tab> pumvisible() ? "\<C-p>" : "\<S-Tab>"
+
+""" Use Enter to select completion item
+inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+
 "
 " Functions
 "

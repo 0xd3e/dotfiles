@@ -1,6 +1,7 @@
 {
 	"coc.preferences.formatOnSaveFiletypes": ["go"],
 	"diagnostic.virtualText": true,
+	"html.autoClosingTags": true,
 	"languageserver": {
 		"golang": {
 			"command": "gopls",
@@ -19,8 +20,8 @@
 		}
 	},
 	"suggest.autoTrigger": "always",
-	"suggest.enablePreselect": true,
+	"suggest.enablePreselect": false,
 	"suggest.fixInsertedWord": true,
 	"suggest.minTriggerInputLength": 2,
-	"suggest.noselect": false
+	"suggest.noselect": true
 }
