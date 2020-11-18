@@ -1,18 +1,13 @@
 {
 	"coc.preferences.formatOnSaveFiletypes": ["go"],
 	"diagnostic.virtualText": true,
+	"go.goplsOptions": {
+		"completeUnimported": true,
+		"usePlaceholders": true
+	},
+	"go.goplsPath": "/opt/local/bin/gopls",
 	"html.autoClosingTags": true,
 	"languageserver": {
-		"golang": {
-			"command": "gopls",
-			"args": [],
-			"rootPatterns": ["go.mod"],
-			"filetypes": ["go"],
-			"initializationOptions": {
-				"completeUnimported": true,
-				"usePlaceholders": true
-			}
-		},
 		"rust": {
 			"command": "rust-analyzer",
 			"rootPatterns": ["Cargo.toml"],

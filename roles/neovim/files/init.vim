@@ -171,6 +171,7 @@ autocmd CursorHold * silent call CocActionAsync('highlight')
 
 """ Extensions to install
 let g:coc_global_extensions = [
+	\ 'coc-go',
 	\ 'coc-html',
 	\ 'coc-lists',
 	\ 'coc-pairs',
