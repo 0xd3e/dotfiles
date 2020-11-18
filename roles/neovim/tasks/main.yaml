@@ -46,12 +46,6 @@
     path: '{{ home }}/.config/nvim'
     state: directory
 
-- name: Write init.vim
-  template:
-    src: init.vim.j2
-    dest: '{{ home }}/.config/nvim/init.vim'
-    backup: '{{ create_backups }}'
-
 - name: Copy configuration files
   copy:
     src: './files/'

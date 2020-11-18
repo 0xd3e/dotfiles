@@ -1,11 +1,8 @@
-{{ ansible_managed | comment(decoration="\" ") }}
-
 "
 " Basic Setup
 "
 
 filetype plugin indent on      " Detect filetype, load its plugin and indent file
-let mapleader = ','            " Switch leader from \ to ,
 
 set backspace=indent,eol,start " Set backspace behavior like in every other editor
 set cmdheight=2                " Coc: Give more space for displaying messages
@@ -56,6 +53,12 @@ let g:node_host_prog = '{{ home }}/.local/share/nvim/provider/nodejs/node_module
 "
 " Mappings
 "
+
+" Break the habit of using the arrow keys for navigation.
+noremap    <up>       <nop>
+noremap    <down>     <nop>
+noremap    <left>     <nop>
+noremap    <right>    <nop>
 
 nnoremap    sq    :w\|bd<cr>    " Use `sq` to save and close the buffer
 nnoremap    qq    :bd!<cr>      " Use `qq` to close the buffer without saving
