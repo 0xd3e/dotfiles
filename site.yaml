@@ -41,3 +41,4 @@
     - bat
     - broot
     - terraform
+    - mongodb_shell
