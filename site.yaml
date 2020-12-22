@@ -15,6 +15,7 @@
         - avr-libc # Needed for QMK Firmware
         - bazel
         - fzf
+        - hugo
         - kubectl-1.19
         - kustomize
         - minikube
