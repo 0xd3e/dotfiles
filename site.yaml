@@ -19,6 +19,7 @@
         - kubectl-1.19
         - kustomize
         - minikube
+        - pwgen
         - py-ansible
         - restic
         - tree
