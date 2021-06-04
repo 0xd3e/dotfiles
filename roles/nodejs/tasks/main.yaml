@@ -1,9 +1,0 @@
----
-- name: Install packages
-  macports:
-    name: '{{ item }}'
-    state: present
-  become: true
-  loop:
-    - '{{ nodejs_package }}'
-    - '{{ nodejs_npm_package }}'

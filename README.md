@@ -1,16 +1,37 @@
 # Dotfiles
 
-This repository contains my dotfiles and other stuff I need to get going.
-All of this is managed by [Ansible][ansible]. If you've never seen Ansible
-before, the contents of this repository might be a bit overwhelming.
+This repository contains my dotfiles and other stuff I need to get going. The
+dotfiles are managed by [chezmoi][chezmoi].
 
-If you are only here for the configuration files, you can find them in the
-subdirectories of the `roles` folder. Inside these directories you'll see other
-directories called `files` and/or `templates`. These are the places where the
-configuration files are stored.
+The ZSH plugins are installed and managed using [Antibody][antibody].
 
-Whenever possible, I kept using plain files under the `files` directory. Files
-under the `templates` directory will most likely contain variables that are
-replaced by Ansible.
+In the `misc` directory you can find various scripts for installing packages,
+fonts and so on.
 
-[ansible]: https://www.ansible.com/
+## Usage
+
+### 1. Install MacPorts
+
+See the [MacPorts Installation Guide][macports-install].
+
+### 2. Install Ports
+
+```shell
+$ sh misc/install_ports.sh
+```
+
+### 3. Apply Dotfiles
+
+```shell
+$ chezmoi init https://github.com/0xIDANT/dotfiles.git
+```
+
+### 4. Install ZSH Plugins
+
+```shell
+$ antibody bundle < /path/to/this/repo/misc/zsh_plugins
+```
+
+[antibody]: https://getantibody.github.io
+[chezmoi]: https://www.chezmoi.io
+[macports-install]: https://www.macports.org/install.php
