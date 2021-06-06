@@ -97,7 +97,8 @@
       '((tab-mark 9 [124 9] [92 9])))
 
 ;; Highlight current line
-(global-hl-line-mode)
+(global-hl-line-mode 1)
+(set-face-background hl-line-face "unemphasizedSelectedTextBackgroundColor")
 
 
 ;;;
