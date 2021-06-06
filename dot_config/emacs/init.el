@@ -207,7 +207,7 @@
 ;; Language server client
 ;;
 (straight-use-package 'lsp-mode)
-;;(setq lsp-headerline-breadcrumb-enable f)
+(setq lsp-headerline-breadcrumb-enable nil)
 ;; (straight-use-package 'lsp-ui)
 
 ;;
