@@ -97,6 +97,9 @@
 (setq whitespace-display-mappings
       '((tab-mark 9 [124 9] [92 9])))
 
+;; Highlight current line
+(global-hl-line-mode)
+
 
 ;;;
 ;;; Modes
