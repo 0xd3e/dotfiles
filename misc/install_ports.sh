@@ -1,11 +1,5 @@
 #!/usr/bin/env zsh
 
-#
-# Notes
-#
-# - The packages avr-gcc and avr-libc are necessary for the QMK firmware
-#
-
 sudo port install \
 	1password-cli \
 	antibody \
@@ -25,9 +19,11 @@ sudo port install \
 	kind \
 	kitty \
 	kubectl-1.19 \
+	lazygit \
 	nodejs14 \
 	npm6 \
 	openjdk11 \
+	pwgen \
 	py-ansible \
 	py39-ansible-base \
 	py39-pip \
