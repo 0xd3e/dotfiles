@@ -186,7 +186,6 @@
 (setq company-echo-delay 0)
 (setq company-minimum-prefix-length 1)
 (setq company-tooltip-limit 20)
-(setq company-show-numbers t)
 (setq company-selection-wrap-around t)
 (setq company-dabbrev-downcase nil)
 (setq company-backends '(company-capf
