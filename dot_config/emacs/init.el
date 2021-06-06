@@ -67,7 +67,7 @@
 (setq read-process-output-max (* 1024 1024)) ;; 1 MB
 
 ;; Indentation.
-(setq my-tab-width 4)
+(setq-default tab-width 4)
 (setq backward-delete-char-untabify-method 'hungry)
 (setq-default electric-indent-inhibit t)
 
@@ -76,8 +76,7 @@
 
 (defun enable-tabs ()
   (local-set-key (kbd "TAB") 'tab-to-tab-stop)
-  (setq indent-tabs-mode t)
-  (setq tab-width my-tab-width))
+  (setq indent-tabs-mode t))
 
 ;; Show column number next to the line number in the mode line.
 (setq column-number-mode t)
@@ -88,7 +87,7 @@
 ;; Theme
 (load-theme 'whiteboard t)
 
-;; Whitespaces
+;; Whitespace
 (global-whitespace-mode)
 (setq whitespace-style '(face tabs tab-mark trailing))
 (custom-set-faces
@@ -123,7 +122,8 @@
 ;; Vim emulation
 ;;
 (straight-use-package 'evil)
-(setq-default evil-shift-width my-tab-width)
+(defvaralias 'evil-shift-width 'tab-width)
+;;(setq-default evil-shift-width my-tab-width)
 (setq evil-want-integration t)
 (setq evil-want-keybinding nil)
 (evil-mode 1)
@@ -303,6 +303,7 @@
 (straight-use-package 'yaml-mode)
 (add-hook 'yaml-mode-hook (lambda ()
                             (setq fill-column 100)
+                            (setq tab-width 2)
                             (disable-tabs)))
 
 ;;
