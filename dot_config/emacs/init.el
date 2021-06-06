@@ -222,7 +222,7 @@
 ;;
 ;; Mode for the Bazel build system
 ;;
-(straight-use-package 'bazel-mode)
+(straight-use-package 'bazel)
 
 ;;
 ;; Text
