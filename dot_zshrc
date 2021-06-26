@@ -28,8 +28,6 @@ compinit
 source ~/.zsh_plugins.sh
 
 # zsh-history-substring-search
-bindkey '^[[A' history-substring-search-up
-bindkey '^[[B' history-substring-search-down
 
 # zoxide (https://github.com/ajeetdsouza/zoxide)
 eval "$(zoxide init zsh)"
@@ -54,9 +52,13 @@ setopt extended_history
 # Key Bindings
 #
 
+# Jump words with option+left / option+right
 bindkey '\e[1;3D' backward-word
 bindkey '\e[1;3C' forward-word
 
+# Scroll history using up and down arrow keys
+bindkey '^[[A' history-substring-search-up
+bindkey '^[[B' history-substring-search-down
 
 #
 # Environment Variables
