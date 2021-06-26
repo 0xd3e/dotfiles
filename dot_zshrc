@@ -24,14 +24,15 @@ compinit
 # Plugins
 #
 
+# Load plugins managed by antibody
 source ~/.zsh_plugins.sh
 
 # zsh-history-substring-search
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
 
-# enhancd
-export ENHANCD_FILTER=fzy
+# zoxide (https://github.com/ajeetdsouza/zoxide)
+eval "$(zoxide init zsh)"
 
 
 #

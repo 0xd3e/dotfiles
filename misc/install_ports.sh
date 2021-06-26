@@ -9,7 +9,7 @@ sudo port install \
 	curl-ca-bundle \
 	emacs-app \
 	exa \
-	fzy \
+	fzf \
 	gnupg2 \
 	go \
 	go2port \
@@ -30,3 +30,4 @@ sudo port install \
 	terraform-0.15 \
 	terragrunt-0.29 \
 	tor \
+	zoxide \
