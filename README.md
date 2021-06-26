@@ -29,7 +29,7 @@ $ chezmoi init https://github.com/0xIDANT/dotfiles.git
 ### 4. Install ZSH Plugins
 
 ```shell
-$ antibody bundle < /path/to/this/repo/misc/zsh_plugins
+$ antibody bundle < /path/to/this/repo/misc/zsh_plugins > ~/.zsh_plugins.sh
 ```
 
 [antibody]: https://getantibody.github.io
