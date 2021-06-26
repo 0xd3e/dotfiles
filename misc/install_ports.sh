@@ -15,6 +15,7 @@ sudo port install \
 	go2port \
 	gopls \
 	helm-3.5 \
+	jq \
 	just \
 	kind \
 	kitty \
@@ -23,6 +24,8 @@ sudo port install \
 	nodejs14 \
 	npm6 \
 	openjdk11 \
+	pgcli \
+	pipx \
 	pwgen \
 	py-ansible \
 	py39-ansible-base \
