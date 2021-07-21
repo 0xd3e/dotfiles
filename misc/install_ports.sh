@@ -10,6 +10,7 @@ sudo port install \
 	emacs-app \
 	exa \
 	fzf \
+	git-delta \
 	gnupg2 \
 	go \
 	go2port \
@@ -21,16 +22,17 @@ sudo port install \
 	kitty \
 	kubectl-1.19 \
 	lazygit \
+	neovim \
 	nodejs14 \
 	npm6 \
 	openjdk11 \
-	pgcli \
 	pipx \
+	postgresql13 \
 	pwgen \
 	py-ansible \
 	py39-ansible-base \
 	py39-pip \
-	terraform-0.15 \
-	terragrunt-0.29 \
+	terraform-1.0 \
+	terragrunt-0.31 \
 	tor \
 	zoxide \
