@@ -4,22 +4,33 @@
 [core]
 	autocrlf = "input"
 
-[diff]
-	tool = "kitty"
-	guitool = "kitty.gui"
+[delta]
+	features = line-numbers decorations
+	syntax-theme = "GitHub"
 
-[difftool]
-	prompt = false
-	trustExitCode = true
+[delta "decorations"]
+	commit-decoration-style = bold yellow box ul
+	file-style = bold yellow ul
+	file-decoration-style = none
+	hunk-header-decoration-style = cyan box ul
 
-[difftool "kitty"]
-	cmd = "kitty +kitten diff $LOCAL $REMOTE"
-
-[difftool "kitty.gui"]
-	cmd = "kitty kitty +kitten diff $LOCAL $REMOTE"
+[delta "line-numbers"]
+	line-numbers-left-style = cyan
+	line-numbers-right-style = cyan
+	line-numbers-minus-style = 124
+	line-numbers-plus-style = 28
 
 [gpg]
 	program = "/opt/local/bin/gpg"
+
+[interactive]
+	diffFilter = delta --color-only
+
+[pager]
+	diff = delta
+	log = delta
+	reflog = delta
+	show = delta
 
 [pull]
 	ff = "only"
