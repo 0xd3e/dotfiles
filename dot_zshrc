@@ -104,19 +104,26 @@ setopt prompt_subst
 autoload -Uz vcs_info
 autoload -Uz add-zsh-hook
 
+zstyle ':vcs_info:*' enable git
 zstyle ':vcs_info:*' check-for-changes true
-zstyle ':vcs_info:*' unstagedstr ' *'
-zstyle ':vcs_info:*' stagedstr ' +'
-zstyle ':vcs_info:git:*' formats '%b%u%c'
-zstyle ':vcs_info:git:*' actionformats '%b|%a%u%c'
+zstyle ':vcs_info:*' unstagedstr '!'
+zstyle ':vcs_info:*' stagedstr '+'
+zstyle ':vcs_info:*' nvcsformats '%~'
+zstyle ':vcs_info:git:*' formats '%r/%S @ %b%u%c'
+zstyle ':vcs_info:git:*' actionformats '%r/%S @ %b (%a|%m) %u%c'
 
-precmd_vcs_info() { vcs_info }
+precmd_vcs_info() {
+    vcs_info
+}
 add-zsh-hook precmd precmd_vcs_info
 
 precmd_set_prompt() {
-    local kube_current_context=$(cat ~/.kube/config | grep "current-context:" | sed "s/current-context: //")
+    local kube_context=$(cat ~/.kube/config | grep "current-context:" | sed "s/current-context: //")
 
-    local top="%K{red} %? %k%K{blue} $kube_current_context %k%K{green} ${vcs_info_msg_0_} %k %~"
+    local section_status="%K{007}%(?.%F{002}.%F{001}) %? %f%k"
+	local section_kubectx="%K{006}%F{007} ${kube_context} %f%k"
+
+    local top="${section_status}${section_kubectx} ${vcs_info_msg_0_}"
     local bottom='%# '
 
     PROMPT="$top"$'\n'"$bottom"
