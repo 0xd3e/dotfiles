@@ -35,4 +35,4 @@ sudo port install \
 	terraform-1.0 \
 	terragrunt-0.31 \
 	tor \
-	zoxide \
+	zoxide
