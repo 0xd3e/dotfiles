@@ -79,6 +79,7 @@ export PATH=$HOME/.local/bin:$PATH
 # Aliases
 #
 
+alias cat='bat'
 alias cdr='cd $(git rev-parse --show-toplevel)'
 alias cm='chezmoi'
 alias d='docker'
