@@ -1,1 +1,3 @@
-vim.bo.tabstop = 4
+local helpers = require('helpers')
+
+helpers.set_indent('tabs', 4)

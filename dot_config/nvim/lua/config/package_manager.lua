@@ -7,11 +7,11 @@
 --
 
 require 'paq' {
-	'savq/paq-nvim', -- The package manager itself
-	'hrsh7th/nvim-compe', -- Completion
-	'neovim/nvim-lspconfig', -- Language server client
-	'nvim-treesitter/nvim-treesitter', -- Syntax highlighting and stuff
-	'nvim-lua/plenary.nvim', -- Lua function library (dependency of telescope)
-	'nvim-lua/popup.nvim', -- Popup API for Neovim (dependency of telescope)
-	'nvim-telescope/telescope.nvim', -- Fuzzy finder for files, buffers, etc
+  'savq/paq-nvim', -- The package manager itself
+  'hrsh7th/nvim-compe', -- Completion
+  'neovim/nvim-lspconfig', -- Language server client
+  'nvim-treesitter/nvim-treesitter', -- Syntax highlighting and stuff
+  'nvim-lua/plenary.nvim', -- Lua function library (dependency of telescope)
+  'nvim-lua/popup.nvim', -- Popup API for Neovim (dependency of telescope)
+  'nvim-telescope/telescope.nvim', -- Fuzzy finder for files, buffers, etc
 }

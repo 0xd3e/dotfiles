@@ -1,2 +1,3 @@
-vim.bo.tabstop = 2
-vim.bo.expandtab = true
+local helpers = require('helpers')
+
+helpers.set_indent('spaces', 2)
