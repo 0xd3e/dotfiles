@@ -32,6 +32,7 @@ sudo port install \
 	py-ansible \
 	py39-ansible-base \
 	py39-pip \
+	tealdeer \
 	terraform-1.0 \
 	terragrunt-0.31 \
 	tor \
