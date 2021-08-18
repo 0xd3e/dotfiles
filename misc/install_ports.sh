@@ -15,7 +15,6 @@ sudo port install \
 	go \
 	go2port \
 	gopls \
-	helm-3.5 \
 	jq \
 	just \
 	kind \
@@ -29,8 +28,6 @@ sudo port install \
 	pipx \
 	postgresql13 \
 	pwgen \
-	py-ansible \
-	py39-ansible-base \
 	py39-pip \
 	tealdeer \
 	terraform-1.0 \
