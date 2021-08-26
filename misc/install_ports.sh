@@ -19,7 +19,7 @@ sudo port install \
 	just \
 	kind \
 	kitty \
-	kubectl-1.19 \
+	kubectl-1.22 \
 	lazygit \
 	neovim \
 	nodejs14 \
