@@ -1,5 +1,7 @@
 local helpers = require('helpers')
 
+require 'lspconfig'.gopls.setup {}
+
 -- Set indentation
 helpers.set_indent('tabs', 4)
 
