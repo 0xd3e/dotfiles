@@ -11,8 +11,9 @@ require 'paq' {
   'hrsh7th/nvim-compe', -- Completion
   'neovim/nvim-lspconfig', -- Language server client
   'nvim-treesitter/nvim-treesitter', -- Syntax highlighting and stuff
+  'windwp/nvim-autopairs', -- Automatically close character pairs like braces
   'nvim-lua/plenary.nvim', -- Lua function library (dependency of telescope)
   'nvim-lua/popup.nvim', -- Popup API for Neovim (dependency of telescope)
   'nvim-telescope/telescope.nvim', -- Fuzzy finder for files, buffers, etc
-  'lukas-reineke/indent-blankline.nvim' -- Indent guides
+  'lukas-reineke/indent-blankline.nvim', -- Indent guides
 }
