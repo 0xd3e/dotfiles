@@ -14,4 +14,5 @@ require 'paq' {
   'nvim-lua/plenary.nvim', -- Lua function library (dependency of telescope)
   'nvim-lua/popup.nvim', -- Popup API for Neovim (dependency of telescope)
   'nvim-telescope/telescope.nvim', -- Fuzzy finder for files, buffers, etc
+  'lukas-reineke/indent-blankline.nvim' -- Indent guides
 }
