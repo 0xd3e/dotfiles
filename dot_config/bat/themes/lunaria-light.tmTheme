@@ -50,6 +50,28 @@
 		</dict>
 		<dict>
 			<key>name</key>
+			<string>Attribute Names (HTML, XML, CSS)</string>
+			<key>scope</key>
+			<string>entity.other.attribute-name</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6C6686</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Class Names</string>
+			<key>scope</key>
+			<string>entity.name.class</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#566E85</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
 			<string>Comments</string>
 			<key>scope</key>
 			<string>comment, punctuation.definition.comment</string>
@@ -72,13 +94,125 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Functions</string>
+			<string>Control Keywords</string>
+			<key>scope</key>
+			<string>keyword.control</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#886051</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Declaration Keywords</string>
+			<key>scope</key>
+			<string>keyword.declaration</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#886051</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Deprecated</string>
+			<key>scope</key>
+			<string>invalid.deprecated</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#7F6800</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Entity Names</string>
+			<key>scope</key>
+			<string>entity.name</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#566E85</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Escape Sequences</string>
+			<key>scope</key>
+			<string>constant.character.escape</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#776A43</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Function Calls</string>
+			<key>scope</key>
+			<string>variable.function</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6C6686</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Function Names</string>
 			<key>scope</key>
 			<string>entity.name.function</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
+				<string>#815F73</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Function Parameters</string>
+			<key>scope</key>
+			<string>variable.parameter</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#776A43</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Headings (Markdown, Textile, etc.)</string>
+			<key>scope</key>
+			<string>markup.heading, entity.name.section</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
 				<string>#566E85</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Inherited Classes, Interfaces, Traits</string>
+			<key>scope</key>
+			<string>entity.other.inherited-class</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#815F73</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Invalid</string>
+			<key>scope</key>
+			<string>invalid</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#8B4A2C</string>
 			</dict>
 		</dict>
 		<dict>
@@ -89,7 +223,158 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
+				<string>#886051</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Labels</string>
+			<key>scope</key>
+			<string>entity.name.label</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6C6686</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Language Constants</string>
+			<key>scope</key>
+			<string>constant.language</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6C6686</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Language Variables (this, self, super)</string>
+			<key>scope</key>
+			<string>variable.language</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#5A7259</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Markup Bold</string>
+			<key>scope</key>
+			<string>markup.bold</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#484646</string>
+				<key>fontStyle</key>
+				<string>bold</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Markup Italic</string>
+			<key>scope</key>
+			<string>markup.italic</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#484646</string>
+				<key>fontStyle</key>
+				<string>italic</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Markup List</string>
+			<key>scope</key>
+			<string>markup.list</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#776A43</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Markup Raw</string>
+			<key>scope</key>
+			<string>markup.raw</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#827E7D</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Markup Underline</string>
+			<key>scope</key>
+			<string>markup.underline</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#484646</string>
+				<key>fontStyle</key>
+				<string>underline</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Markup Underline Link</string>
+			<key>scope</key>
+			<string>markup.underline.link</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#124D71</string>
+				<key>fontStyle</key>
+				<string>underline</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Numeric Constants</string>
+			<key>scope</key>
+			<string>constant.numeric</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
 				<string>#815F73</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Operators</string>
+			<key>scope</key>
+			<string>keyword.operator</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#484646</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Storage Modifiers</string>
+			<key>scope</key>
+			<string>storage.modifier</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#5A7259</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Storage Types</string>
+			<key>scope</key>
+			<string>storage.type</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#6C6686</string>
 			</dict>
 		</dict>
 		<dict>
@@ -105,13 +390,24 @@
 		</dict>
 		<dict>
 			<key>name</key>
-			<string>Storage</string>
+			<string>Support (Framework Elements)</string>
 			<key>scope</key>
-			<string>storage</string>
+			<string>support</string>
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#815F73</string>
+				<string>#566E85</string>
+			</dict>
+		</dict>
+		<dict>
+			<key>name</key>
+			<string>Tags (HTML, XML, CSS)</string>
+			<key>scope</key>
+			<string>entity.name.tag</string>
+			<key>settings</key>
+			<dict>
+				<key>foreground</key>
+				<string>#5A7259</string>
 			</dict>
 		</dict>
 		<dict>
@@ -122,7 +418,7 @@
 			<key>settings</key>
 			<dict>
 				<key>foreground</key>
-				<string>#886051</string>
+				<string>#776A43</string>
 			</dict>
 		</dict>
 	</array>
