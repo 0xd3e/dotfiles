@@ -5,9 +5,9 @@ sudo port install \
 	antibody \
 	bat \
 	bazel \
+	cfssl \
 	chezmoi \
 	curl-ca-bundle \
-	emacs-app \
 	exa \
 	fzf \
 	git-delta \
@@ -19,6 +19,7 @@ sudo port install \
 	just \
 	kind \
 	kitty \
+	k9s \
 	kubectl-1.22 \
 	lazygit \
 	neovim \
@@ -29,6 +30,7 @@ sudo port install \
 	postgresql13 \
 	pwgen \
 	py39-pip \
+	sttr \
 	tealdeer \
 	terraform-1.0 \
 	terragrunt-0.31 \
