@@ -27,11 +27,11 @@ compinit
 # Load plugins managed by antibody
 source ~/.zsh_plugins.sh
 
-# zsh-history-substring-search
-
 # zoxide (https://github.com/ajeetdsouza/zoxide)
 eval "$(zoxide init zsh)"
 
+# zsh-autosuggestions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
 #
 # History Options
