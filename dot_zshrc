@@ -67,6 +67,7 @@ bindkey '^[[B' history-substring-search-down
 export GOPATH='/Users/danieltrautmann/Development/Go'
 export LANG=en_US.UTF-8
 export EDITOR=nvim
+export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export SSH_AUTH_SOCK=$($(which gpgconf) --list-dirs agent-ssh-socket)
 
 
