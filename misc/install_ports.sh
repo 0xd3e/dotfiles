@@ -11,15 +11,18 @@ sudo port install \
 	exa \
 	fzf \
 	git-delta \
+	gitui \
 	gnupg2 \
 	go \
+	go-jsonnet \
 	go2port \
 	gopls \
+	jsonnet-bundler \
 	jq \
 	just \
+	k9s \
 	kind \
 	kitty \
-	k9s \
 	kubectl-1.22 \
 	lazygit \
 	neovim \
@@ -35,4 +38,5 @@ sudo port install \
 	terraform-1.0 \
 	terragrunt-0.31 \
 	tor \
+	yq \
 	zoxide
