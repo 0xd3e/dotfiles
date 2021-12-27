@@ -17,14 +17,13 @@ sudo port install \
 	go-jsonnet \
 	go2port \
 	gopls \
-	jsonnet-bundler \
+	helm-3.7 \
 	jq \
+	jsonnet-bundler \
 	just \
 	k9s \
 	kind \
-	kitty \
 	kubectl-1.22 \
-	lazygit \
 	neovim \
 	nodejs14 \
 	npm6 \
