@@ -117,8 +117,17 @@ zstyle ':vcs_info:*' check-for-changes true
 zstyle ':vcs_info:*' unstagedstr '!'
 zstyle ':vcs_info:*' stagedstr '+'
 zstyle ':vcs_info:*' nvcsformats '%~'
+zstyle ':vcs_info:*+start-up:*' hooks git-check-bare
 zstyle ':vcs_info:git:*' formats '%r/%S @ %b%u%c'
 zstyle ':vcs_info:git:*' actionformats '%r/%S @ %b (%a|%m) %u%c'
+
++vi-git-check-bare() {
+    if [ -d ".bare" ] && [ -f ".git" ]; then
+        ret=1
+    else
+        ret=0
+    fi
+}
 
 precmd_vcs_info() {
     vcs_info
@@ -129,7 +138,7 @@ precmd_set_prompt() {
     local kube_context=$(cat ~/.kube/config | grep "current-context:" | sed "s/current-context: //")
 
     local section_status="%K{007}%(?.%F{002}.%F{001}) %? %f%k"
-	local section_kubectx="%K{006}%F{007} ${kube_context} %f%k"
+    local section_kubectx="%K{006}%F{007} ${kube_context} %f%k"
 
     local top="${section_status}${section_kubectx} ${vcs_info_msg_0_}"
     local bottom='%# '
