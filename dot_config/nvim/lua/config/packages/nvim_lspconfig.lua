@@ -10,6 +10,9 @@ function nvim_lspconfig.setup()
   require('lspconfig')['gopls'].setup {
     capabilities = capabilities,
   }
+  require('lspconfig')['pylsp'].setup {
+    capabilities = capabilities,
+  }
   require('lspconfig')['tsserver'].setup {
     capabilities = capabilities,
   }
