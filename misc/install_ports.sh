@@ -4,8 +4,6 @@ sudo port install \
 	1password-cli \
 	antibody \
 	bat \
-	bazel \
-	cfssl \
 	chezmoi \
 	curl-ca-bundle \
 	exa \
@@ -16,22 +14,18 @@ sudo port install \
 	go \
 	go-jsonnet \
 	go2port \
-	gopls \
-	helm-3.7 \
 	jq \
 	jsonnet-bundler \
 	just \
 	k9s \
 	kind \
-	kubectl-1.22 \
+	kubectl-1.23 \
 	neovim \
-	nodejs14 \
-	npm6 \
-	openjdk11 \
+	nodejs16 \
+	npm8 \
 	pipx \
 	postgresql13 \
 	pwgen \
-	py39-pip \
 	sttr \
 	tealdeer \
 	terraform-1.0 \
