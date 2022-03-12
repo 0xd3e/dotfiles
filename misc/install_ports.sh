@@ -4,6 +4,7 @@ sudo port install \
 	1password-cli \
 	antibody \
 	bat \
+	cfssl \
 	chezmoi \
 	curl-ca-bundle \
 	exa \
@@ -26,6 +27,7 @@ sudo port install \
 	pipx \
 	postgresql13 \
 	pwgen \
+	ripgrep \
 	sttr \
 	tealdeer \
 	terraform-1.0 \
