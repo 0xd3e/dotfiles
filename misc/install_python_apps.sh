@@ -1,8 +1,8 @@
 #!/usr/bin/env zsh
 
 PACKAGES=(
-	'python-lsp-server[yapf]'
 	'ansible-core'
+	'pgcli'
 )
 
 for pkg in ${PACKAGES[@]}
