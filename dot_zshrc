@@ -4,7 +4,9 @@
 # Completion
 #
 
-#	'm:{a-zA-Z}={A-Za-z}'
+# Custom fpath for completion sources
+fpath=(~/.zsh_completions $fpath)
+
 # Case-insensitive matching
 zstyle ':completion:*' matcher-list '' \
 	'm:{a-z\-}={A-Z\_}' \
@@ -146,3 +148,30 @@ precmd_set_prompt() {
     PROMPT="$top"$'\n'"$bottom"
 }
 add-zsh-hook precmd precmd_set_prompt
+
+
+#
+# Functions
+#
+
+gwtclone() {
+    if [ -z $1 ]
+    then
+        echo 'No argument provided'
+        exit 1
+    fi
+
+    local repo=$1
+
+    if [[ ! $repo = git@* ]]
+    then
+        echo 'Repository does not seem to be a Git URL'
+        exit 1
+    fi
+
+    local dirname=$(basename $repo | cut -f 1 -d '.')
+    mkdir $dirname
+    cd $dirname
+    git clone --bare $repo .bare
+    echo 'gitdir: ./.bare' > .git
+}
