@@ -1,0 +1,15 @@
+- name: Create plugin directory
+  ansible.builtin.file:
+    path: "{{ zsh_plugins_dir }}"
+    state: directory
+
+- name: Download plugins
+  ansible.builtin.git:
+    repo: "{{ item.repo }}"
+    dest: "{{ zsh_plugins_dir }}/{{ item.repo | basename }}"
+  loop: "{{ zsh_plugins }}"
+
+- name: Write zshrc
+  ansible.builtin.template:
+    src: templates/zshrc.j2
+    dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/.zshrc"

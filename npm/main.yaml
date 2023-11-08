@@ -1,0 +1,9 @@
+- name: Install Node.js packages
+  community.general.npm:
+    name: "{{ item.name }}"
+    version: "{{ item.version | default(omit) }}"
+    global: true
+    production: true
+    state: "{{ item.state | default('latest') }}"
+  loop: "{{ npm_packages }}"
+  become: true

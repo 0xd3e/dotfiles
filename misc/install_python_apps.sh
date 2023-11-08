@@ -1,8 +1,7 @@
 #!/usr/bin/env zsh
 
 PACKAGES=(
-	'ansible-core'
-	'pgcli'
+	's3cmd'
 )
 
 for pkg in ${PACKAGES[@]}

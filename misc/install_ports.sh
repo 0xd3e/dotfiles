@@ -1,37 +1,41 @@
 #!/usr/bin/env zsh
 
 sudo port install \
-	1password-cli \
 	antibody \
-	bat \
-	cfssl \
+	bazelisk \
 	chezmoi \
-	curl-ca-bundle \
-	exa \
+	cmake \
 	fzf \
-	git-delta \
-	gitui \
 	gnupg2 \
 	go \
 	go-jsonnet \
 	go2port \
+	gopass \
+	gopls \
+	graphviz \
+	grpcurl \
 	jq \
 	jsonnet-bundler \
-	just \
 	k9s \
 	kind \
-	kubectl-1.23 \
+	kubectl-1.24 \
+	litecli \
+	lua-language-server \
 	neovim \
-	nodejs16 \
+	nodejs18 \
 	npm8 \
+	pgcli \
 	pipx \
+	podman \
 	postgresql13 \
+	pulumi \
 	pwgen \
-	ripgrep \
+	py-ansible-core \
+	py-black \
+	py-python-lsp-server \
+	sshpass \
 	sttr \
-	tealdeer \
-	terraform-1.0 \
+	terraform-1.3 \
 	terragrunt-0.31 \
 	tor \
-	yq \
-	zoxide
+	yq

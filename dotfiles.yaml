@@ -1,0 +1,123 @@
+- name: Dotfiles
+  hosts: localhost
+  connection: local
+
+  vars:
+    # MacPorts
+    macports_ports:
+      - name: atlas-toolkit
+      - name: bat
+      - name: bazelisk
+      - name: cargo
+      - name: eza
+      - name: fd
+      - name: fzf
+      - name: git-delta
+      - name: gitui
+      - name: gnupg2
+      - name: go
+      - name: go-jsonnet
+      - name: go-task
+      - name: go2port
+      - name: gopls
+      - name: jq
+      - name: jsonnet-bundler
+      - name: just
+      - name: k9s
+      - name: kubectl-1.27
+      - name: natscli
+      - name: neovim
+      - name: nodejs18
+      - name: npm8
+      - name: pipx
+      - name: podman
+      - name: pulumi
+      - name: pwgen
+      - name: py311-ansible-core
+      - name: ripgrep
+      - name: rust
+      - name: sshpass
+      - name: stylua
+      - name: tealdeer
+      - name: tectonic
+      - name: terraform-1.5
+      - name: terragrunt-0.31
+      - name: wezterm
+      - name: yq
+      - name: zoxide
+
+    # NPM
+    npm_packages:
+      - name: '@astrojs/language-server'
+      - name: pnpm
+
+    # ZSH
+    zsh_plugins_dir: "{{ lookup('ansible.builtin.env', 'HOME') }}/.zsh_plugins"
+    zsh_plugins:
+      - repo: https://github.com/zsh-users/zsh-syntax-highlighting
+        source: zsh-syntax-highlighting.zsh
+      - repo: https://github.com/zsh-users/zsh-history-substring-search
+        source: zsh-history-substring-search.zsh
+      - repo: https://github.com/zsh-users/zsh-autosuggestions
+        source: zsh-autosuggestions.zsh
+      - repo: https://github.com/hlissner/zsh-autopair
+        source: autopair.zsh
+      - repo: https://github.com/spaceship-prompt/spaceship-prompt
+        source: spaceship.zsh
+
+    # Fonts
+    fonts:
+      # JetBrains Mono
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-Thin.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-ThinItalic.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-ExtraLight.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-ExtraLightItalic.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-Light.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-LightItalic.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-Regular.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-Italic.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-Medium.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-MediumItalic.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-SemiBold.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-SemiBoldItalic.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-Bold.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-BoldItalic.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-ExtraBold.otf
+      - https://github.com/JetBrains/JetBrainsMono/blob/v2.304/fonts/otf/JetBrainsMono-ExtraBoldItalic.otf
+
+      # Inter
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-Thin.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-ThinItalic.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-ExtraLight.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-ExtraLightItalic.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-Light.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-LightItalic.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-Regular.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-Italic.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-Medium.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-MediumItalic.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-SemiBold.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-SemiBoldItalic.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-Bold.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-BoldItalic.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-ExtraBold.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-ExtraBoldItalic.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-Black.otf
+      - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-BlackItalic.otf
+
+  tasks:
+  - name: Import MacPorts tasks
+    ansible.builtin.import_tasks:
+      file: macports/main.yaml
+
+  - name: Import NPM tasks
+    ansible.builtin.import_tasks:
+      file: npm/main.yaml
+
+  - name: Import ZSH tasks
+    ansible.builtin.import_tasks:
+      file: zsh/main.yaml
+
+  - name: Import Fonts tasks
+    ansible.builtin.import_tasks:
+      file: fonts/main.yaml
