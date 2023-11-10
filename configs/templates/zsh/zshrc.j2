@@ -4,12 +4,6 @@
 # Completion
 #
 
-# Add completion path for installed ports
-fpath=(/opt/local/share/zsh/site-functions $fpath)
-
-# Custom fpath for completion sources
-fpath=(~/.zsh_completions $fpath)
-
 # Case-insensitive matching
 zstyle ':completion:*' matcher-list '' \
        'm:{a-z\-}={A-Z\_}' \
@@ -29,32 +23,24 @@ setopt complete_in_word
 autoload -Uz compinit
 compinit
 
-# FZF
-source /opt/local/share/fzf/shell/completion.zsh
-
 
 #
 # Environment Variables
 #
 
 export LANG=en_US.UTF-8
-export EDITOR=nvim
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export SSH_AUTH_SOCK=$($(which gpgconf) --list-dirs agent-ssh-socket)
-
-# PATH
-export PATH=$HOME/.cargo/bin:$PATH
-export PATH=$HOME/.rustup/toolchains/stable-x86_64-apple-darwin/bin:$PATH
-export PATH=$HOME/go/bin:$PATH
-export PATH=$HOME/.local/bin:$PATH
+if (( $+commands[nvim] )); then
+    export EDITOR=nvim
+else
+    export EDITOR=vim
+fi
 
 
 #
 # Plugins
 #
-
-# zoxide (https://github.com/ajeetdsouza/zoxide)
-eval "$(zoxide init zsh)"
 
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
@@ -62,11 +48,17 @@ ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 # spaceship (Prompt)
 SPACESHIP_CHAR_SYMBOL="%% "
 SPACESHIP_EXIT_CODE_SHOW=true
-SPACESHIP_PROMPT_ORDER=(exit_code dir venv git line_sep char)
+SPACESHIP_PROMPT_ORDER=(dir git venv nix_shell line_sep exit_code sudo char)
 
-{% for item in zsh_plugins %}
-source {{ zsh_plugins_dir }}/{{item.repo | basename }}/{{ item.source }}
-{% endfor %}
+source $HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+source $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+source $HOME/.nix-profile/share/zsh-history-substring-search/zsh-history-substring-search.zsh
+source $HOME/.nix-profile/share/zsh/zsh-autopair/autopair.zsh
+source $HOME/.nix-profile/share/zsh/themes/spaceship.zsh-theme
+
+# FZF
+source $HOME/.nix-profile/share/fzf/completion.zsh
+source $HOME/.nix-profile/share/fzf/key-bindings.zsh
 
 
 #
@@ -95,9 +87,6 @@ bindkey '\e[1;3C' forward-word
 # Scroll history using up and down arrow keys
 bindkey '^[[A' history-substring-search-up
 bindkey '^[[B' history-substring-search-down
-
-# FZF
-source /opt/local/share/fzf/shell/key-bindings.zsh
 
 
 #

@@ -1,15 +1,45 @@
 {
   inputs = {
     nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
-  outputs = { self, nixpkgs }: {
-    packages."x86_64-darwin".default = let
-      pkgs = nixpkgs.legacyPackages."x86_64-darwin";
-    in pkgs.buildEnv {
-      name = "my-packages";
-      paths = with pkgs; [
-        bat
+  outputs = { self, nixpkgs, nixpkgs-unstable }: let
+    system = "x86_64-darwin";
+    pkgs = import nixpkgs { inherit system; };
+    unstable-pkgs = import nixpkgs-unstable {
+      inherit system;
+      # config = { allowUnfree = true; };
+    };
+  in {
+    packages.${system}.default = pkgs.buildEnv {
+      name = "My Packages";
+      paths = [
+        pkgs.bat
+        pkgs.delta
+        unstable-pkgs.eza
+        pkgs.fd
+        pkgs.fzf
+        pkgs.gitui
+        pkgs.gnupg
+        pkgs.jq
+        pkgs.pwgen
+        pkgs.ripgrep
+        pkgs.spaceship-prompt
+        unstable-pkgs.neovim
+        pkgs.yq-go
+        pkgs.zsh
+        pkgs.zsh-autopair
+        pkgs.zsh-autosuggestions
+        pkgs.zsh-history-substring-search
+        pkgs.zsh-syntax-highlighting
+      ];
+    };
+
+    devShells.${system}.default = pkgs.mkShell {
+      name = "dotfiles";
+      packages = [
+        pkgs.ansible
       ];
     };
   };

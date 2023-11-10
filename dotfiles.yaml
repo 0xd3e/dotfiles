@@ -3,7 +3,12 @@
   connection: local
 
   vars:
+    home: "{{ ansible_user_dir }}"
+    xdg_config_home: "{{ home }}/.config"
+
     # MacPorts
+    # This is obsolete since I moved the package management to Nix.
+    # See: flake.nix
     macports_ports:
       - name: atlas-toolkit
       - name: bat
@@ -46,25 +51,6 @@
       - name: yq
       - name: zoxide
 
-    # NPM
-    npm_packages:
-      - name: '@astrojs/language-server'
-      - name: pnpm
-
-    # ZSH
-    zsh_plugins_dir: "{{ lookup('ansible.builtin.env', 'HOME') }}/.zsh_plugins"
-    zsh_plugins:
-      - repo: https://github.com/zsh-users/zsh-syntax-highlighting
-        source: zsh-syntax-highlighting.zsh
-      - repo: https://github.com/zsh-users/zsh-history-substring-search
-        source: zsh-history-substring-search.zsh
-      - repo: https://github.com/zsh-users/zsh-autosuggestions
-        source: zsh-autosuggestions.zsh
-      - repo: https://github.com/hlissner/zsh-autopair
-        source: autopair.zsh
-      - repo: https://github.com/spaceship-prompt/spaceship-prompt
-        source: spaceship.zsh
-
     # Fonts
     fonts:
       # JetBrains Mono
@@ -106,18 +92,18 @@
       - https://github.com/rsms/inter/blob/v3.19/docs/font-files/Inter-BlackItalic.otf
 
   tasks:
-  - name: Import MacPorts tasks
-    ansible.builtin.import_tasks:
-      file: macports/main.yaml
+  # - name: Import MacPorts tasks
+  #   ansible.builtin.import_tasks:
+  #     file: macports/main.yaml
 
-  - name: Import NPM tasks
+  - name: Configs
     ansible.builtin.import_tasks:
-      file: npm/main.yaml
-
-  - name: Import ZSH tasks
-    ansible.builtin.import_tasks:
-      file: zsh/main.yaml
+      file: configs/main.yaml
+    tags:
+      - configs
 
   - name: Import Fonts tasks
     ansible.builtin.import_tasks:
       file: fonts/main.yaml
+    tags:
+      - fonts

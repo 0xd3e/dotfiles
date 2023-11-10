@@ -1,37 +1,39 @@
 # Dotfiles
 
-This repository contains my dotfiles and other stuff I need to get going. The
-dotfiles are managed by [chezmoi][chezmoi].
-
-The ZSH plugins are installed and managed using [Antibody][antibody].
-
-In the `misc` directory you can find various scripts for installing packages,
-fonts and so on.
+This repository contains my dotfiles and other stuff I need to get going. For
+now packages are managed by Nix (see [flake.nix](./flake.nix)) and everything
+else is managed by Ansible.
 
 ## Usage
 
-### 1. Install MacPorts
+Nix needs to be installed before anything else can happen.
 
-See the [MacPorts Installation Guide][macports-install].
+**Install Nix profile (run only once - if the system is new)**
 
-### 2. Install Ports
-
-```shell
-$ sh misc/install_ports.sh
+```bash
+$ nix profile install .
 ```
 
-### 3. Apply Dotfiles
+**Install packages**
 
-```shell
-$ chezmoi init https://github.com/0xIDANT/dotfiles.git
+```bash
+$ nix profile upgrade 0
 ```
 
-### 4. Install ZSH Plugins
+**Run Ansible**
 
-```shell
-$ antibody bundle < /path/to/this/repo/misc/zsh_plugins > ~/.zsh_plugins.sh
+```bash
+$ nix develop
+$ ansible-playbook dotfile.yaml
 ```
 
-[antibody]: https://getantibody.github.io
-[chezmoi]: https://www.chezmoi.io
-[macports-install]: https://www.macports.org/install.php
+## Ansible Tags
+
+These tags can be used to limit the tasks to a certain subset.
+
+| Tag       | Description                                                 |
+|:----------|:------------------------------------------------------------|
+| `configs` | Run all tasks defined in the `configs` directory (dorfiles) |
+| `zsh`     | Setup ZSH config files                                      |
+| `bat`     | Write bat config                                            |
+| `wezterm` | Setup WezTerm config                                        |

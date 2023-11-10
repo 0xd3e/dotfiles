@@ -1,0 +1,49 @@
+- name: ZSH
+  block:
+    - name: ZSH - Write .zshrc
+      ansible.builtin.template:
+        src: templates/zsh/zshrc.j2
+        dest: "{{ home }}/.zshrc"
+  tags:
+    - zsh
+
+- name: bat
+  block:
+    - name: bat - Create config directory
+      ansible.builtin.file:
+        path: "{{ xdg_config_home }}/bat"
+        state: directory
+      register: bat_config_dir_result
+
+    - name: bat - Write config
+      ansible.builtin.template:
+        src: templates/bat/config.j2
+        dest: "{{ bat_config_dir_result.path }}/config"
+  tags:
+    - bat
+
+- name: WezTerm
+  block:
+    - name: WezTerm - Create config directory
+      ansible.builtin.file:
+        path: "{{ xdg_config_home }}/wezterm"
+        state: directory
+      register: wezterm_config_dir_result
+
+    - name: WezTerm - Write config
+      ansible.builtin.template:
+        src: templates/wezterm/wezterm.lua.j2
+        dest: "{{ wezterm_config_dir_result.path }}/wezterm.lua"
+
+    - name: WezTerm - Create colors directory
+      ansible.builtin.file:
+        path: "{{ wezterm_config_dir_result.path }}/colors"
+        state: directory
+      register: wezterm_colors_dir_result
+
+    - name: WezTerm - Write colors
+      ansible.builtin.template:
+        src: templates/wezterm/colors/dayfox.toml.j2
+        dest: "{{ wezterm_colors_dir_result.path }}/dayfox.toml"
+  tags:
+    - wezterm
