@@ -9,74 +9,33 @@ config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 
 -- Font settings
-config.font = wezterm.font 'JetBrains Mono'
-config.font_rules = {
-  -- Normal
-  {
-    intensity = 'Normal',
-    italic = false,
-    font = wezterm.font {
-      family = 'JetBrains Mono',
-      weight = 'Medium',
-      italic = false,
-    },
-  },
-  -- Normal italic
-  {
-    intensity = 'Normal',
-    italic = true,
-    font = wezterm.font {
-      family = 'JetBrains Mono',
-      weight = 'Medium',
-      italic = true,
-    },
-  },
-  -- Bold
-  {
-    intensity = 'Bold',
-    italic = false,
-    font = wezterm.font {
-      family = 'JetBrains Mono',
-      weight = 'Bold',
-      italic = false,
-    },
-  },
-  -- Bold italic
-  {
-    intensity = 'Bold',
-    italic = true,
-    font = wezterm.font {
-      family = 'JetBrains Mono',
-      weight = 'Bold',
-      italic = true,
-    },
-  },
-  -- Half
-  {
-    intensity = 'Half',
-    italic = false,
-    font = wezterm.font {
-      family = 'JetBrains Mono',
-      weight = 'Light',
-      italic = false,
-    },
-  },
-  -- Half italic
-  {
-    intensity = 'Half',
-    italic = true,
-    font = wezterm.font {
-      family = 'JetBrains Mono',
-      weight = 'Light',
-      italic = true,
-    },
-  },
+config.font = wezterm.font {
+  family = 'Iosevka Term',
+  stretch = 'Expanded',
+  weight = 'Regular',
 }
-config.font_size = 13.0
+config.font_size = 14.0
 config.line_height = 1.2
 config.bold_brightens_ansi_colors = false
 
-config.color_scheme = 'dayfox'
+-- Color scheme
+function scheme_for_appearance(appearance)
+  if appearance:find 'Dark' then
+    return 'nightfox'
+  else
+    return 'dayfox'
+  end
+end
+
+wezterm.on('window-config-reloaded', function(window, pane)
+  local overrides = window:get_config_overrides() or {}
+  local appearance = window:get_appearance()
+  local scheme = scheme_for_appearance(appearance)
+  if overrides.color_scheme ~= scheme then
+    overrides.color_scheme = scheme
+    window:set_config_overrides(overrides)
+  end
+end)
 
 -- Key bindings
 config.disable_default_key_bindings = true
@@ -97,14 +56,14 @@ config.keys = {
   },
   -- Split vertical
   {
-    key = '"',
-    mods = 'LEADER|SHIFT',
+    key = 's',
+    mods = 'LEADER',
     action = wezterm.action.SplitVertical { domain = 'CurrentPaneDomain' },
   },
   -- Split horizontal
   {
-    key = '%',
-    mods = 'LEADER|SHIFT',
+    key = 'v',
+    mods = 'LEADER',
     action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
   -- Toggle zoom pane

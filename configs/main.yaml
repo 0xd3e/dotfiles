@@ -31,8 +31,8 @@
       register: wezterm_config_dir_result
 
     - name: WezTerm - Write config
-      ansible.builtin.template:
-        src: templates/wezterm/wezterm.lua.j2
+      ansible.builtin.copy:
+        src: files/wezterm/wezterm.lua
         dest: "{{ wezterm_config_dir_result.path }}/wezterm.lua"
 
     - name: WezTerm - Create colors directory
@@ -42,8 +42,11 @@
       register: wezterm_colors_dir_result
 
     - name: WezTerm - Write colors
-      ansible.builtin.template:
-        src: templates/wezterm/colors/dayfox.toml.j2
-        dest: "{{ wezterm_colors_dir_result.path }}/dayfox.toml"
+      ansible.builtin.copy:
+        src: "files/wezterm/colors/{{ item }}.toml"
+        dest: "{{ wezterm_colors_dir_result.path }}/{{ item }}.toml"
+      loop:
+        - dayfox
+        - nightfox
   tags:
     - wezterm
