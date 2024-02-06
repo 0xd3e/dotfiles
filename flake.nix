@@ -23,7 +23,11 @@
         pkgs.gitui
         pkgs.gnupg
         pkgs.jq
+        unstable-pkgs.pgcli
+        unstable-pkgs.podman
+        unstable-pkgs.podman-compose
         pkgs.pwgen
+        unstable-pkgs.qemu # Dependency of Podman
         pkgs.ripgrep
         pkgs.spaceship-prompt
         unstable-pkgs.neovim
