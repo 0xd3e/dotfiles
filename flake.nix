@@ -9,7 +9,9 @@
     pkgs = import nixpkgs { inherit system; };
     unstable-pkgs = import nixpkgs-unstable {
       inherit system;
-      # config = { allowUnfree = true; };
+    };
+    neovim = unstable-pkgs.neovim-unwrapped.override rec {
+        treesitter-parsers = {};
     };
   in {
     packages.${system}.default = pkgs.buildEnv {
@@ -30,7 +32,7 @@
         unstable-pkgs.qemu # Dependency of Podman
         pkgs.ripgrep
         pkgs.spaceship-prompt
-        unstable-pkgs.neovim
+        neovim
         pkgs.yq-go
         pkgs.zsh
         pkgs.zsh-autopair
