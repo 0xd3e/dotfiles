@@ -29,6 +29,7 @@ compinit
 #
 
 export LANG=en_US.UTF-8
+export LC_ALL=en_US.UTF-8
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
 export SSH_AUTH_SOCK=$($(which gpgconf) --list-dirs agent-ssh-socket)
 if (( $+commands[nvim] )); then
@@ -132,6 +133,11 @@ if (( $+commands[nvim] )); then
     alias v='nvim'
 else
     alias v='vim'
+fi
+
+if (( $+commands[nix] )); then
+    alias n='nix'
+    alias nd='nix develop -c $SHELL'
 fi
 
 
