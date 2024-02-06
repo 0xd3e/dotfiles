@@ -48,5 +48,6 @@
       loop:
         - dayfox
         - nightfox
+        - nordfox
   tags:
     - wezterm

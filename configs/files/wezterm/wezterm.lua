@@ -21,7 +21,7 @@ config.bold_brightens_ansi_colors = false
 -- Color scheme
 function scheme_for_appearance(appearance)
   if appearance:find 'Dark' then
-    return 'nightfox'
+    return 'nordfox'
   else
     return 'dayfox'
   end
