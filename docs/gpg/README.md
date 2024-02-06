@@ -16,7 +16,7 @@ This is the listing of secret keys without the secret key in place. Note the `#`
 after `sec`.
 
 ```bash
-% gpg --list-secret-keys                                 
+$ gpg --list-secret-keys
 /path/to/.gnupg/pubring.kbx
 -----------------------------------------
 sec#  ed25519 2020-01-09 [C] [expired: 2023-01-09]
@@ -29,13 +29,13 @@ uid           [ expired] Identity 2
 Now import the secret key from wherever it is stored.
 
 ```bash
-% gpg --import /path/to/private_key.asc 
+$ gpg --import /path/to/private_key.asc 
 ```
 
 Listing the secret keys should now look like this. Note that the `#` is gone.
 
 ```bash
-% gpg --list-secret-keys                                                                
+$ gpg --list-secret-keys
 /path/to/.gnupg/pubring.kbx
 -----------------------------------------
 sec   ed25519 2020-01-09 [C] [expired: 2023-01-09]
@@ -47,7 +47,7 @@ uid           [ expired] Identity 2
 You can now edit the key and extend the expiration preferably by one year.
 
 ```bash
-% gpg --edit-key <KEY ID>
+$ gpg --edit-key <KEY ID>
 
 gpg> key 0
 
@@ -64,30 +64,51 @@ Key is valid for? (0) 1y
 Key expires at Wed Jan 24 11:01:57 2024 CET
 
 Is this correct? (y/N) y
+```
 
+Repeat the step above with all subkeys by selecting them with `key 1` .. `key
+x`.
+
+Finally save the changes.
+
+```bash
 gpg> save
 ```
 
 Export all keys to the location where you store the secret key.
 
 ```bash
-% gpg \
+$ gpg \
   --export-secret-keys \
   --armor \
   --output /path/to/private_key_new.asc \
   <KEY ID>
 
-% gpg \
+$ gpg \
   --export \
   --armor \
   --output /path/to/public_key_new.asc \
   <KEY ID>
 
-% gpg \
+$ gpg \
   --export-secret-subkeys \
   --armor \
   --output /path/to/subkeys.private_new.asc \
   <KEY ID>
+```
+
+Remove the secret key again. After that the `#` should appear again when listing
+the secret keys.
+
+```bash
+$ gpg --delete-secret-key <KEY ID>
+```
+
+Update the keys on the key server. This will send your public keys to the server
+defined in your gpg.conf.
+
+```bash
+$ gpg --send-keys <KEY ID>
 ```
 
 ## GnuPG Migration
