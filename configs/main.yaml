@@ -1,8 +1,8 @@
 - name: ZSH
   block:
     - name: ZSH - Write .zshrc
-      ansible.builtin.template:
-        src: templates/zsh/zshrc.j2
+      ansible.builtin.copy:
+        src: files/zsh/zshrc
         dest: "{{ home }}/.zshrc"
   tags:
     - zsh
@@ -16,8 +16,8 @@
       register: bat_config_dir_result
 
     - name: bat - Write config
-      ansible.builtin.template:
-        src: templates/bat/config.j2
+      ansible.builtin.copy:
+        src: files/bat/config
         dest: "{{ bat_config_dir_result.path }}/config"
   tags:
     - bat
