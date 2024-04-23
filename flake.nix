@@ -38,6 +38,7 @@
         pkgs.zsh-autopair
         pkgs.zsh-autosuggestions
         pkgs.zsh-history-substring-search
+        unstable-pkgs.zsh-powerlevel10k
         pkgs.zsh-syntax-highlighting
       ];
     };
