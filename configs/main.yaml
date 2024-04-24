@@ -47,7 +47,6 @@
         dest: "{{ wezterm_colors_dir_result.path }}/{{ item }}.toml"
       loop:
         - dayfox
-        - nightfox
         - nordfox
   tags:
     - wezterm
