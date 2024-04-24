@@ -1,52 +1,51 @@
 {
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs";
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-23.11-darwin";
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
   };
 
   outputs = { self, nixpkgs, nixpkgs-unstable }: let
     system = "x86_64-darwin";
-    pkgs = import nixpkgs { inherit system; };
-    unstable-pkgs = import nixpkgs-unstable {
+    stablePkgs = import nixpkgs { inherit system; };
+    unstablePkgs = import nixpkgs-unstable {
       inherit system;
     };
-    neovim = unstable-pkgs.neovim-unwrapped.override rec {
+    neovim = unstablePkgs.neovim-unwrapped.override rec {
         treesitter-parsers = {};
     };
   in {
-    packages.${system}.default = pkgs.buildEnv {
+    packages.${system}.default = stablePkgs.buildEnv {
       name = "My Packages";
       paths = [
-        pkgs.bat
-        pkgs.delta
-        unstable-pkgs.eza
-        pkgs.fd
-        pkgs.fzf
-        pkgs.gitui
-        pkgs.gnupg
-        pkgs.jq
-        unstable-pkgs.pgcli
-        unstable-pkgs.podman
-        unstable-pkgs.podman-compose
-        pkgs.pwgen
-        unstable-pkgs.qemu # Dependency of Podman
-        pkgs.ripgrep
-        pkgs.spaceship-prompt
+        stablePkgs.bat
+        stablePkgs.delta
+        unstablePkgs.eza
+        stablePkgs.fd
+        unstablePkgs.fzf
+        stablePkgs.gitui
+        stablePkgs.gnupg
+        stablePkgs.jq
+        unstablePkgs.pgcli
+        stablePkgs.podman
+        stablePkgs.podman-compose
+        stablePkgs.pwgen
+        stablePkgs.qemu # Dependency of Podman
+        stablePkgs.ripgrep
         neovim
-        pkgs.yq-go
-        pkgs.zsh
-        pkgs.zsh-autopair
-        pkgs.zsh-autosuggestions
-        pkgs.zsh-history-substring-search
-        unstable-pkgs.zsh-powerlevel10k
-        pkgs.zsh-syntax-highlighting
+        stablePkgs.yq-go
+        # unstablePkgs.zsh
+        unstablePkgs.zsh-autopair
+        unstablePkgs.zsh-autosuggestions
+        unstablePkgs.zsh-history-substring-search
+        unstablePkgs.zsh-powerlevel10k
+        unstablePkgs.zsh-syntax-highlighting
       ];
     };
 
-    devShells.${system}.default = pkgs.mkShell {
+    devShells.${system}.default = stablePkgs.mkShell {
       name = "dotfiles";
       packages = [
-        pkgs.ansible
+        unstablePkgs.ansible
       ];
     };
   };
