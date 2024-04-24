@@ -1,6 +1,15 @@
 # vim: set ft=zsh
 
 #
+# Enable Powerlevel10k instant prompt.
+#
+
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
+
+
+#
 # Completion
 #
 
@@ -31,6 +40,7 @@ compinit
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
+export LS_COLORS='fi=30:di=34:ex=32:pi=33:so=31:bd=33:cd=33:ln=35:or=35;9'
 export SSH_AUTH_SOCK=$($(which gpgconf) --list-dirs agent-ssh-socket)
 if (( $+commands[nvim] )); then
     export EDITOR=nvim
@@ -46,20 +56,15 @@ fi
 # zsh-autosuggestions
 ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE="fg=244"
 
-# spaceship (Prompt)
-SPACESHIP_CHAR_SYMBOL="%% "
-SPACESHIP_EXIT_CODE_SHOW=true
-SPACESHIP_PROMPT_ORDER=(dir git venv nix_shell line_sep exit_code sudo char)
-
+# Load plugins
 source $HOME/.nix-profile/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 source $HOME/.nix-profile/share/zsh-autosuggestions/zsh-autosuggestions.zsh
 source $HOME/.nix-profile/share/zsh-history-substring-search/zsh-history-substring-search.zsh
 source $HOME/.nix-profile/share/zsh/zsh-autopair/autopair.zsh
-source $HOME/.nix-profile/share/zsh/themes/spaceship.zsh-theme
+source $HOME/.nix-profile/share/zsh-powerlevel10k/powerlevel10k.zsh-theme
 
-# FZF
-source $HOME/.nix-profile/share/fzf/completion.zsh
-source $HOME/.nix-profile/share/fzf/key-bindings.zsh
+# fzf
+eval "$(fzf --zsh)"
 
 
 #
@@ -123,6 +128,7 @@ fi
 
 if (( $+commands[podman] )); then
     alias p='podman'
+    alias pps='podman ps -a'
 fi
 
 if (( $+commands[kubectl] )); then
@@ -167,3 +173,6 @@ gwtclone() {
     git clone --bare $repo .bare
     echo 'gitdir: ./.bare' > .git
 }
+
+# Source powerlevel10k config
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
