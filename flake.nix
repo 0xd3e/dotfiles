@@ -25,15 +25,15 @@
         stablePkgs.gitui
         stablePkgs.gnupg
         stablePkgs.jq
+        neovim
+        unstablePkgs.nodePackages.typescript-language-server
         unstablePkgs.pgcli
         stablePkgs.podman
         stablePkgs.podman-compose
         stablePkgs.pwgen
         stablePkgs.qemu # Dependency of Podman
         stablePkgs.ripgrep
-        neovim
         stablePkgs.yq-go
-        # unstablePkgs.zsh
         unstablePkgs.zsh-autopair
         unstablePkgs.zsh-autosuggestions
         unstablePkgs.zsh-history-substring-search
