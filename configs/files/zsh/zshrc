@@ -129,6 +129,7 @@ fi
 if (( $+commands[podman] )); then
     alias p='podman'
     alias pps='podman ps -a'
+    alias pi='podman images'
 fi
 
 if (( $+commands[kubectl] )); then
