@@ -7,6 +7,7 @@ end
 
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
+config.native_macos_fullscreen_mode = true
 
 -- Font settings
 config.font = wezterm.font {
