@@ -6,6 +6,17 @@
     home: "{{ ansible_user_dir }}"
     xdg_config_home: "{{ home }}/.config"
 
+    # Node.js packages
+    node_packages:
+      - name: typescript
+        version: 5.4.5
+      - name: typescript-language-server
+        version: 4.3.3
+      - name: "@vue/language-server"
+        version: 2.0.17
+      - name: "@vue/typescript-plugin"
+        version: 2.0.17
+
     # Fonts
     fonts:
       # JetBrains Mono
@@ -52,6 +63,12 @@
       file: configs/main.yaml
     tags:
       - configs
+
+  - name: Node.js packages
+    ansible.builtin.import_tasks:
+      file: node_packages/main.yaml
+    tags:
+      - node_packages
 
   - name: Import Fonts tasks
     ansible.builtin.import_tasks:

@@ -26,7 +26,7 @@
         stablePkgs.gnupg
         stablePkgs.jq
         neovim
-        unstablePkgs.nodePackages.typescript-language-server
+        unstablePkgs.nodejs_20
         unstablePkgs.pgcli
         unstablePkgs.podman # Requires vfkit in PATH
         unstablePkgs.podman-compose

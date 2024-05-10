@@ -37,7 +37,7 @@ compinit
 # Environment Variables
 #
 
-export PATH=$PATH:$HOME/.local/bin
+export PATH=$PATH:$HOME/.local/bin:$HOME/.local/node_packages/node_modules/.bin
 export LANG=en_US.UTF-8
 export LC_ALL=en_US.UTF-8
 export WORDCHARS='*?_-.[]~=&;!#$%^(){}<>'
