@@ -1,7 +1,0 @@
-- name: Install ports
-  community.general.macports:
-    name: "{{ item.name }}"
-    variant: "{{ item.variant | default(omit) }}"
-    state: "{{ item.state | default('present') }}"
-  loop: "{{ macports_ports }}"
-  become: true
