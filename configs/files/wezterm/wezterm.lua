@@ -8,6 +8,7 @@ end
 config.use_fancy_tab_bar = false
 config.tab_bar_at_bottom = true
 config.native_macos_fullscreen_mode = true
+config.front_end = "WebGpu"
 
 -- Font settings
 config.font = wezterm.font {
@@ -15,7 +16,7 @@ config.font = wezterm.font {
   stretch = 'Expanded',
   weight = 'Regular',
 }
-config.font_size = 14.0
+config.font_size = 15.0
 config.line_height = 1.2
 config.bold_brightens_ansi_colors = false
 
