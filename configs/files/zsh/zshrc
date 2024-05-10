@@ -148,6 +148,10 @@ if (( $+commands[nix] )); then
     alias nd='nix develop -c $SHELL'
 fi
 
+if [ -f /Applications/Zed.app/Contents/MacOS/cli ]; then
+    alias zed='/Applications/Zed.app/Contents/MacOS/cli'
+fi
+
 
 #
 # Functions
