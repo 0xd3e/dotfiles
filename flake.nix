@@ -28,11 +28,12 @@
         neovim
         unstablePkgs.nodePackages.typescript-language-server
         unstablePkgs.pgcli
-        stablePkgs.podman
-        stablePkgs.podman-compose
+        unstablePkgs.podman # Requires vfkit in PATH
+        unstablePkgs.podman-compose
         stablePkgs.pwgen
-        stablePkgs.qemu # Dependency of Podman
+        unstablePkgs.python311Packages.python-lsp-server
         stablePkgs.ripgrep
+        unstablePkgs.ruff
         stablePkgs.yq-go
         unstablePkgs.zsh-autopair
         unstablePkgs.zsh-autosuggestions
