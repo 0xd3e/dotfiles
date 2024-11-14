@@ -115,7 +115,7 @@ if (( $+commands[eza] )); then
 fi
 
 if (( $+commands[fzf] )); then
-    alias sd='cd ~ && cd \$(find * -type d | fzf)'
+    alias sd='cd ~ && cd $(find * -type d | fzf)'
 fi
 
 if (( $+commands[git] )); then
