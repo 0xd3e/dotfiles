@@ -36,7 +36,10 @@
         unstable.podman # Requires vfkit in PATH
         unstable.podman-compose
         unstable.pwgen
+        unstable.python312
         unstable.python312Packages.python-lsp-server
+        unstable.python312Packages.python-lsp-ruff
+        unstable.python312Packages.pylsp-mypy
         unstable.ripgrep
         unstable.ruff
         unstable.s5cmd
