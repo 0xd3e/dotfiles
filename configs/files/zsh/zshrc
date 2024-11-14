@@ -114,6 +114,10 @@ if (( $+commands[eza] )); then
     alias treegi='eza --tree --git-ignore'
 fi
 
+if (( $+commands[fzf] )); then
+    alias sd='cd ~ && cd \$(find * -type d | fzf)'
+fi
+
 if (( $+commands[git] )); then
     alias g='git'
     alias gs='git status'
