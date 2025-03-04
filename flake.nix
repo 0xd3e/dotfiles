@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
   };
 
   outputs = { self, nixpkgs-unstable, nixpkgs-stable }: let
@@ -11,14 +11,11 @@
 
     unstable = import nixpkgs-unstable { inherit system; };
     stable = import nixpkgs-stable { inherit system; };
-
-    # neovim = unstable.neovim-unwrapped.override rec {
-    #     treesitter-parsers = {};
-    # };
   in {
     packages.${system}.default = unstable.buildEnv {
       name = "My Packages";
       paths = [
+        unstable.aerospace
         unstable.neovim
         unstable.bat
         unstable.delta
@@ -33,7 +30,7 @@
         unstable.jq
         unstable.nodejs_20
         stable.pgcli
-        unstable.podman # Requires vfkit in PATH
+        unstable.podman
         unstable.podman-compose
         unstable.pwgen
         unstable.python312
