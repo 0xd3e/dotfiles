@@ -165,7 +165,7 @@ fi
 gwtclone() {
     if [ -z $1 ]
     then
-        echo 'No argument provided'
+        echo 'No argument provided' >&2
         exit 1
     fi
 
@@ -182,6 +182,26 @@ gwtclone() {
     cd $dirname
     git clone --bare $repo .bare
     echo 'gitdir: ./.bare' > .git
+}
+
+# Load environment variables in a .env file into the shell
+loadenv() {
+    if [ ! -f .env ]; then
+        echo "No .env file in this directory" >&2
+        exit 1
+    fi
+
+    export $(cat .env | xargs)
+}
+
+# Unload environment variables in a .env file from the shell
+unloadenv() {
+    if [ ! -f .env ]; then
+        echo "No .env file in this directory" >&2
+        exit 1
+    fi
+
+    unset $(cat .env | cut -d '=' -f 1 | xargs)
 }
 
 # Source powerlevel10k config
