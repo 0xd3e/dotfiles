@@ -3,7 +3,7 @@
 
   inputs = {
     nixpkgs-unstable.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-24.11-darwin";
+    nixpkgs-stable.url = "github:NixOS/nixpkgs/nixpkgs-25.05-darwin";
   };
 
   outputs = { self, nixpkgs-unstable, nixpkgs-stable }: let
@@ -15,31 +15,42 @@
     packages.${system}.default = unstable.buildEnv {
       name = "My Packages";
       paths = [
-        unstable.aerospace
-        unstable.neovim
         unstable.bat
+        unstable.codex
         unstable.delta
+        unstable.dotnet-sdk
         unstable.elixir
         unstable.elixir-ls
         unstable.eza
         unstable.fd
+        unstable.fish
         unstable.fzf
         unstable.gitui
         unstable.gnupg
+        unstable.go-task
         unstable.gopls
         unstable.jq
-        unstable.nodejs_20
-        stable.pgcli
+        unstable.libdvdcss
+        unstable.mkvtoolnix-cli
+        unstable.mise
+        unstable.neovim
+        unstable.nodejs_24
+        unstable.oh-my-posh
+        unstable.pgcli
         unstable.podman
         unstable.podman-compose
+        unstable.postgresql_15
         unstable.pwgen
-        unstable.python312
-        unstable.python312Packages.python-lsp-server
-        unstable.python312Packages.python-lsp-ruff
-        unstable.python312Packages.pylsp-mypy
+        unstable.python313
+        unstable.python313Packages.pylsp-mypy
+        unstable.python313Packages.python-lsp-ruff
+        unstable.python313Packages.python-lsp-server
         unstable.ripgrep
         unstable.ruff
         unstable.s5cmd
+        unstable.scc
+        unstable.stylua
+        unstable.typst
         unstable.yq-go
         unstable.zsh-autopair
         unstable.zsh-autosuggestions
