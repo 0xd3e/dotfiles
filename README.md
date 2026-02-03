@@ -37,3 +37,4 @@ These tags can be used to limit the tasks to a certain subset.
 | `zsh`     | Setup ZSH config files                                      |
 | `bat`     | Write bat config                                            |
 | `wezterm` | Setup WezTerm config                                        |
+| `fonts`   | Install fonts                                               |
