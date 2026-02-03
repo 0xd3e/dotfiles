@@ -1,5 +1,7 @@
 - name: Install fonts
-  ansible.builtin.get_url:
-    url: "{{ item }}"
+  ansible.builtin.unarchive:
+    src: "{{ item.url }}"
     dest: "{{ lookup('ansible.builtin.env', 'HOME') }}/Library/Fonts"
+    include: "{{ item.files }}"
+    remote_src: true
   loop: "{{ fonts }}"
