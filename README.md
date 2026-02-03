@@ -34,7 +34,7 @@ These tags can be used to limit the tasks to a certain subset.
 | Tag       | Description                                                 |
 |:----------|:------------------------------------------------------------|
 | `configs` | Run all tasks defined in the `configs` directory (dorfiles) |
-| `zsh`     | Setup ZSH config files                                      |
+| `fish`    | Setup fish shell config files                               |
 | `bat`     | Write bat config                                            |
-| `wezterm` | Setup WezTerm config                                        |
+| `ghostty` | Write Ghostty config                                        |
 | `fonts`   | Install fonts                                               |
