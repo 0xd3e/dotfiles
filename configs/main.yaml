@@ -1,16 +1,24 @@
-- name: ZSH
+- name: Fish Shell
   block:
-    - name: ZSH - Write .zshrc
-      ansible.builtin.copy:
-        src: files/zsh/zshrc
-        dest: "{{ home }}/.zshrc"
+    - name: Fish - Create config directory
+      ansible.builtin.file:
+        path: "{{ xdg_config_home }}/fish"
+        state: directory
+      register: fish_config_dir_result
 
-    - name: ZSH - Write powerlevel10k config
+    - name: Fish - Write config
       ansible.builtin.copy:
-        src: ./files/zsh/p10k.zsh
-        dest: "{{ home }}/.p10k.zsh"
+        src: files/fish/config.fish
+        dest: "{{ fish_config_dir_result.path }}/config.fish"
+
+    - name: Fish - Write functions
+      ansible.builtin.copy:
+        src: "{{ item }}"
+        dest: "{{ fish_config_dir_result.path }}/functions/"
+      with_fileglob:
+        - files/fish/functions/*
   tags:
-    - zsh
+    - fish
 
 - name: bat
   block:
