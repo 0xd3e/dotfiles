@@ -35,31 +35,17 @@
   tags:
     - bat
 
-- name: WezTerm
+- name: Ghostty
   block:
-    - name: WezTerm - Create config directory
+    - name: Ghostty - Create config directory
       ansible.builtin.file:
-        path: "{{ xdg_config_home }}/wezterm"
+        path: "{{ xdg_config_home }}/ghostty"
         state: directory
-      register: wezterm_config_dir_result
+      register: ghostty_config_dir_result
 
-    - name: WezTerm - Write config
+    - name: Ghostty - Write config
       ansible.builtin.copy:
-        src: files/wezterm/wezterm.lua
-        dest: "{{ wezterm_config_dir_result.path }}/wezterm.lua"
-
-    - name: WezTerm - Create colors directory
-      ansible.builtin.file:
-        path: "{{ wezterm_config_dir_result.path }}/colors"
-        state: directory
-      register: wezterm_colors_dir_result
-
-    - name: WezTerm - Write colors
-      ansible.builtin.copy:
-        src: "files/wezterm/colors/{{ item }}.toml"
-        dest: "{{ wezterm_colors_dir_result.path }}/{{ item }}.toml"
-      loop:
-        - dayfox
-        - nordfox
+        src: files/ghostty/config
+        dest: "{{ ghostty_config_dir_result.path }}/config"
   tags:
-    - wezterm
+    - ghostty

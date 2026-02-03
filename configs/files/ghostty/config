@@ -1,0 +1,7 @@
+font-family = "Iosevka Term Extended"
+font-family-bold = "Iosevka Term Semibold Extended"
+font-family-italic = "Iosevka Term Extended Italic"
+font-family-bold-italic = "Iosevka Term Semibold Extended Italic"
+font-size = 15
+theme = "light:dayfox,dark:nightfox"
+copy-on-select = "clipboard"
