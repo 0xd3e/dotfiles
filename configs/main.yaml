@@ -49,3 +49,18 @@
         dest: "{{ ghostty_config_dir_result.path }}/config"
   tags:
     - ghostty
+
+- name: OpenCode
+  block:
+    - name: OpenCode - Create config directory
+      ansible.builtin.file:
+        path: "{{ xdg_config_home }}/opencode"
+        state: directory
+      register: opencode_config_dir_result
+
+    - name: OpenCode - Write config
+      ansible.builtin.copy:
+        src: files/opencode/opencode.json
+        dest: "{{ opencode_config_dir_result.path }}/opencode.json"
+  tags:
+    - opencode

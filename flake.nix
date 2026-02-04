@@ -18,7 +18,6 @@
         unstable.bat
         unstable.codex
         unstable.delta
-        unstable.dotnet-sdk
         unstable.elixir
         unstable.elixir-ls
         unstable.eza
@@ -30,12 +29,10 @@
         unstable.go-task
         unstable.gopls
         unstable.jq
-        unstable.libdvdcss
-        unstable.mkvtoolnix-cli
         unstable.mise
         unstable.neovim
         unstable.nodejs_24
-        unstable.oh-my-posh
+        unstable.opencode
         unstable.pgcli
         unstable.podman
         unstable.podman-compose
@@ -48,15 +45,8 @@
         unstable.ripgrep
         unstable.ruff
         unstable.s5cmd
-        unstable.scc
         unstable.stylua
         unstable.typst
-        unstable.yq-go
-        unstable.zsh-autopair
-        unstable.zsh-autosuggestions
-        unstable.zsh-history-substring-search
-        unstable.zsh-powerlevel10k
-        unstable.zsh-syntax-highlighting
       ];
     };
 
