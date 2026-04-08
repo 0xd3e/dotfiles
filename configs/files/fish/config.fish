@@ -1,6 +1,14 @@
 if status is-interactive
-	# Source Nix.
-	source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+	# Nix based setup
+	if command --search nix > /dev/null
+		# Source Nix.
+		source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
+
+		if command --search mise > /dev/null
+			# Source Mise
+			mise activate fish | source
+		end
+	end
 
 	# Disable greeting.
 	set -U fish_greeting
