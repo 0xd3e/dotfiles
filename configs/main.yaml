@@ -35,6 +35,21 @@
   tags:
     - nvim
 
+- name: GnuPG
+  block:
+    - name: GnuPG - Create config directory
+      ansible.builtin.file:
+        path: "{{ home }}/.gnupg"
+        state: directory
+      register: gnupg_config_dir_result
+
+    - name: GnuPG - Write config files
+      ansible.builtin.copy:
+        src: files/gnupg/
+        dest: "{{ gnupg_config_dir_result.path }}/"
+  tags:
+    - gnupg
+
 - name: bat
   block:
     - name: bat - Create config directory
