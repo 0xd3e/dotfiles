@@ -9,13 +9,15 @@
   outputs = { self, nixpkgs-unstable, nixpkgs-stable }: let
     system = "x86_64-darwin";
 
-    unstable = import nixpkgs-unstable { inherit system; };
-    stable = import nixpkgs-stable { inherit system; };
+    unstable = import nixpkgs-unstable { inherit system; config.allowUnfree = true; };
+    stable = import nixpkgs-stable { inherit system; config.allowUnfree = true; };
   in {
     packages.${system}.default = unstable.buildEnv {
       name = "My Packages";
       paths = [
+        unstable.opentofu
         unstable.bat
+        unstable.claude-code
         unstable.codex
         unstable.delta
         unstable.elixir
