@@ -50,6 +50,21 @@
   tags:
     - gnupg
 
+- name: Git
+  block:
+    - name: Git - Create config directory
+      ansible.builtin.file:
+        path: "{{ xdg_config_home }}/git"
+        state: directory
+      register: git_config_dir_result
+
+    - name: Git - Write config files
+      ansible.builtin.copy:
+        src: files/git/
+        dest: "{{ git_config_dir_result.path }}/"
+  tags:
+    - git
+
 - name: bat
   block:
     - name: bat - Create config directory

@@ -1,0 +1,51 @@
+[commit]
+	gpgSign = true
+
+[core]
+	autocrlf = "input"
+	pager = "delta"
+
+[interactive]
+	diffFilter = delta --color-only --features=interactive
+
+[delta]
+	features = line-numbers decorations
+
+[delta "interactive"]
+	keep-plus-minus-markers = false
+
+[delta "decorations"]
+	minus-style = black brightred
+	minus-emph-style = black bold red
+	plus-style = black brightgreen
+	plus-emph-style = black bold green
+	line-numbers-minus-style = red
+	line-numbers-plus-style = green
+	line-numbers-zero-style = black
+	commit-decoration-style = blue ol
+	commit-style = raw
+	file-style = omit
+	hunk-header-decoration-style = blue box
+	hunk-header-file-style = red
+	hunk-header-line-number-style = "#067a00"
+	hunk-header-style = file line-number syntax
+
+[gpg]
+	format = openpgp
+
+[pull]
+	ff = "only"
+
+[push]
+	autoSetupRemote = true
+
+[user]
+	email = "me@danieltrautmann.com"
+	name = "Daniel Trautmann"
+	signingKey = "5E6AC81B89A12392"
+
+[includeIf "gitdir:**/raeumlich/**/.git"]
+	path = "~/.config/git/config_rmlch"
+
+[includeIf "gitdir:**/botario/**/.git"]
+	path = "~/.config/git/config_botario"
