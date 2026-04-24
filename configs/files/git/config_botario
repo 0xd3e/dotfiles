@@ -1,2 +1,5 @@
 [user]
 	email = "daniel.trautmann@botario.com"
+
+[credential]
+	helper = /usr/local/share/gcm-core/git-credential-manager
