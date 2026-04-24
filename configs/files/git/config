@@ -44,8 +44,8 @@
 	name = "Daniel Trautmann"
 	signingKey = "5E6AC81B89A12392"
 
-[includeIf "gitdir:**/raeumlich/**/.git"]
+[includeIf "gitdir:~/Development/Projects/gitlab.com/raeumlich/"]
 	path = "~/.config/git/config_rmlch"
 
-[includeIf "gitdir:**/botario/**/.git"]
+[includeIf "gitdir:~/Development/Projects/gitlab.botario.com/botario/"]
 	path = "~/.config/git/config_botario"
