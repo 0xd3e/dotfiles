@@ -69,7 +69,7 @@ require('lazy').setup({
   require('my.plugins.lspconfig'),
   require('my.plugins.nightfox'),
   require('my.plugins.lualine'),
-  require('my.plugins.comment'),
+  require('my.plugins.mini_comment'),
   require('my.plugins.treesitter'),
   require('my.plugins.surround'),
   require('my.plugins.99'),
