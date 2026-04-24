@@ -1,5 +1,5 @@
 function gwtclone --argument-names repo
-	if not string match --quiet 'git@*' $repo
+	if not string match --regex --quiet 'git@.*|https:\/\/.*' $repo
 		echo 'Repository does not seem to be a Git URL'
 		return 1
 	end
