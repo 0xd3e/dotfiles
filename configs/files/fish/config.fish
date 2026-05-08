@@ -1,13 +1,7 @@
 if status is-interactive
-	# Nix based setup
-	if command --search nix > /dev/null
-		# Source Nix.
-		source /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.fish
-
-		if command --search mise > /dev/null
-			# Source Mise
-			mise activate fish | source
-		end
+	# Source mise
+	if command --search mise > /dev/null
+		mise activate fish | source
 	end
 
 	# Disable greeting.
@@ -64,10 +58,5 @@ if status is-interactive
 		alias v='nvim'
 	else
 		alias v='vim'
-	end
-
-	if command --search nix > /dev/null
-		alias n='nix'
-		alias nd='nix develop -c $SHELL'
 	end
 end
