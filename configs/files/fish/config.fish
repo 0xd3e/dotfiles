@@ -1,4 +1,9 @@
 if status is-interactive
+	# Howebrew
+	fish_add_path /opt/homebrew/sbin
+	fish_add_path /opt/homebrew/bin
+	
+
 	# Source mise
 	if command --search mise > /dev/null
 		mise activate fish | source
