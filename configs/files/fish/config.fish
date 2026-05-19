@@ -1,7 +1,13 @@
 if status is-interactive
 	# Howebrew
-	fish_add_path /opt/homebrew/sbin
-	fish_add_path /opt/homebrew/bin
+	switch (uname -m)
+		case x86_64
+			eval "$(/usr/local/bin/brew shellenv)"
+		case arm64
+			eval "$(/opt/homebrew/bin/brew shellenv)"
+		case "*"
+			echo "Can't load Homebrew - Unknown machine type"
+	end
 	
 
 	# Source mise
