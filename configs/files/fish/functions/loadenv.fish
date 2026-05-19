@@ -6,12 +6,6 @@ function loadenv
 		return 1
 	end
 
-	# for line in (cat "$envfile" | grep -v '^#')
-	# 	set item (string split -m 1 '=' $line)
-	# 	set -gx $item[1] $item[2]
-	# 	echo "Exported key $item[1]"
-	# end
-
 	while read line
 		if not string match --quiet --regex '^#|^$' "$line"
 			set item (string split -m 1 '=' $line)
