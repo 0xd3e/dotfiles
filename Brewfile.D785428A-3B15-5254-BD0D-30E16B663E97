@@ -1,0 +1,25 @@
+# Basic CLI
+brew "bat"
+brew "delta"
+brew "eza"
+brew "fd"
+brew "ripgrep"
+
+# Shell
+brew "fish"
+
+# Development
+brew "mise"
+brew "uv"  # Requirement for mise
+brew "gitui"
+brew "neovim"
+brew "podman"
+
+# GnuPG
+brew "gnupg"
+brew "pinentry-mac"
+
+# macOS Apps
+cask "bloom"
+cask "hammerspoon"
+cask "jurplel/tap/instant-space-switcher"
