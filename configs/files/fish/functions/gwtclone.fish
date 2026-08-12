@@ -6,8 +6,17 @@ function gwtclone --argument-names repo
 
 	set --local dir (basename $repo | cut -f 1 -d '.')
 
+	# Create the directory.
 	mkdir $dir
 	cd $dir
+
+	# Clone the repo.
 	git clone --bare $repo .bare
 	echo 'gitdir: ./.bare' > .git
+
+	# Enable fetching remote branches.
+	git config remote.origin.fetch "+refs/heads/*:refs/remotes/origin/*"
+
+	# Fetch remote branches.
+	git fetch origin
 end
