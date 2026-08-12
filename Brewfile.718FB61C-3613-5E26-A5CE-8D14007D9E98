@@ -1,0 +1,37 @@
+# Basic CLI
+brew "bat"
+brew "delta"
+brew "eza"
+brew "fd"
+brew "ripgrep"
+brew "zapp"
+
+# Shell
+brew "fish"
+
+# Development
+brew "gitui"
+brew "hcloud"
+brew "lima"
+brew "mise"
+brew "modem-dev/tap/hunk"
+brew "neovim"
+brew "podman"
+brew "tree-sitter-cli"  # Requirement for nvim (tree-sitter-manager)
+brew "uv"  # Requirement for mise
+cask "claude-code"
+cask "git-credential-manager"
+
+# Ops
+brew "k9s"
+brew "kubernetes-cli"
+brew "teleport"
+
+# GnuPG
+brew "gnupg"
+brew "pinentry-mac"
+
+# macOS Apps
+cask "hammerspoon"
+cask "jurplel/tap/instant-space-switcher"
+cask "macparakeet"
