@@ -8,7 +8,6 @@ if status is-interactive
 		case "*"
 			echo "Can't load Homebrew - Unknown machine type"
 	end
-	
 
 	# Source mise
 	if command --search mise > /dev/null
