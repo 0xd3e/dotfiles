@@ -4,17 +4,14 @@ brew "delta"
 brew "eza"
 brew "fd"
 brew "ripgrep"
-brew "zapp"
 
 # Shell
 brew "fish"
 
 # Development
 brew "gitui"
-brew "hcloud"
-brew "lima"
+brew "lazygit"
 brew "mise"
-brew "modem-dev/tap/hunk"
 brew "neovim"
 brew "podman"
 brew "tree-sitter-cli"  # Requirement for nvim (tree-sitter-manager)
@@ -23,6 +20,7 @@ cask "claude-code"
 cask "git-credential-manager"
 
 # Ops
+brew "hcloud"
 brew "k9s"
 brew "kubernetes-cli"
 brew "teleport"
@@ -31,7 +29,9 @@ brew "teleport"
 brew "gnupg"
 brew "pinentry-mac"
 
+# Keyboard Firmware Flashing
+brew "zapp"
+
 # macOS Apps
-cask "hammerspoon"
 cask "jurplel/tap/instant-space-switcher"
 cask "macparakeet"
