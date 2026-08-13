@@ -32,75 +32,80 @@
 
 - name: GnuPG
   block:
-    - name: GnuPG - Create config directory
+    - name: GnuPG - Create directories
       ansible.builtin.file:
-        path: "{{ home }}/.gnupg"
+        path: "{{ gnupg_config_dir }}/{{ item.path }}"
         state: directory
-      register: gnupg_config_dir_result
+      loop: "{{ lookup('community.general.filetree', 'configs/files/gnupg/', wantlist=True) | selectattr('state', '==', 'directory') }}"
 
-    - name: GnuPG - Write config files
+    - name: GnuPG - Write configs
       ansible.builtin.copy:
-        src: files/gnupg/
-        dest: "{{ gnupg_config_dir_result.path }}/"
+        src: "{{ item.src }}"
+        dest: "{{ gnupg_config_dir }}/{{ item.path }}"
+      loop: "{{ lookup('community.general.filetree', 'configs/files/gnupg/', wantlist=True) | selectattr('state', '==', 'file') }}"
   tags:
     - gnupg
 
 - name: Git
   block:
-    - name: Git - Create config directory
+    - name: Git - Create directories
       ansible.builtin.file:
-        path: "{{ xdg_config_home }}/git"
+        path: "{{ git_config_dir }}/{{ item.path }}"
         state: directory
-      register: git_config_dir_result
+      loop: "{{ lookup('community.general.filetree', 'configs/files/git/', wantlist=True) | selectattr('state', '==', 'directory') }}"
 
-    - name: Git - Write config files
+    - name: Git - Write configs
       ansible.builtin.copy:
-        src: files/git/
-        dest: "{{ git_config_dir_result.path }}/"
+        src: "{{ item.src }}"
+        dest: "{{ git_config_dir }}/{{ item.path }}"
+      loop: "{{ lookup('community.general.filetree', 'configs/files/git/', wantlist=True) | selectattr('state', '==', 'file') }}"
   tags:
     - git
 
 - name: bat
   block:
-    - name: bat - Create config directory
+    - name: bat - Create directories
       ansible.builtin.file:
-        path: "{{ xdg_config_home }}/bat"
+        path: "{{ bat_config_dir }}/{{ item.path }}"
         state: directory
-      register: bat_config_dir_result
+      loop: "{{ lookup('community.general.filetree', 'configs/files/bat/', wantlist=True) | selectattr('state', '==', 'directory') }}"
 
-    - name: bat - Write config
+    - name: bat - Write configs
       ansible.builtin.copy:
-        src: files/bat/config
-        dest: "{{ bat_config_dir_result.path }}/config"
+        src: "{{ item.src }}"
+        dest: "{{ bat_config_dir }}/{{ item.path }}"
+      loop: "{{ lookup('community.general.filetree', 'configs/files/bat/', wantlist=True) | selectattr('state', '==', 'file') }}"
   tags:
     - bat
 
 - name: Ghostty
   block:
-    - name: Ghostty - Create config directory
+    - name: Ghostty - Create directories
       ansible.builtin.file:
-        path: "{{ xdg_config_home }}/ghostty"
+        path: "{{ ghostty_config_dir }}/{{ item.path }}"
         state: directory
-      register: ghostty_config_dir_result
+      loop: "{{ lookup('community.general.filetree', 'configs/files/ghostty/', wantlist=True) | selectattr('state', '==', 'directory') }}"
 
-    - name: Ghostty - Write config
+    - name: Ghostty - Write configs
       ansible.builtin.copy:
-        src: files/ghostty/config
-        dest: "{{ ghostty_config_dir_result.path }}/config"
+        src: "{{ item.src }}"
+        dest: "{{ ghostty_config_dir }}/{{ item.path }}"
+      loop: "{{ lookup('community.general.filetree', 'configs/files/ghostty/', wantlist=True) | selectattr('state', '==', 'file') }}"
   tags:
     - ghostty
 
 - name: OpenCode
   block:
-    - name: OpenCode - Create config directory
+    - name: OpenCode - Create directories
       ansible.builtin.file:
-        path: "{{ xdg_config_home }}/opencode"
+        path: "{{ opencode_config_dir }}/{{ item.path }}"
         state: directory
-      register: opencode_config_dir_result
+      loop: "{{ lookup('community.general.filetree', 'configs/files/opencode/', wantlist=True) | selectattr('state', '==', 'directory') }}"
 
-    - name: OpenCode - Write config
+    - name: OpenCode - Write configs
       ansible.builtin.copy:
-        src: files/opencode/opencode.json
-        dest: "{{ opencode_config_dir_result.path }}/opencode.json"
+        src: "{{ item.src }}"
+        dest: "{{ opencode_config_dir }}/{{ item.path }}"
+      loop: "{{ lookup('community.general.filetree', 'configs/files/opencode/', wantlist=True) | selectattr('state', '==', 'file') }}"
   tags:
     - opencode
