@@ -70,7 +70,7 @@ require('lazy').setup({
   require('my.plugins.nightfox'),
   require('my.plugins.lualine'),
   require('my.plugins.mini_comment'),
-  require('my.plugins.treesitter'),
+  require('my.plugins.tree_sitter_manager'),
   require('my.plugins.surround'),
   require('my.plugins.99'),
   require('my.plugins.oil'),
