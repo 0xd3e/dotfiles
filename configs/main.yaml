@@ -87,7 +87,7 @@
       loop: "{{ lookup('community.general.filetree', 'configs/files/ghostty/', wantlist=True) | selectattr('state', '==', 'directory') }}"
 
     - name: Ghostty - Write configs
-      ansible.builtin.copy:
+      ansible.builtin.template:
         src: "{{ item.src }}"
         dest: "{{ ghostty_config_dir }}/{{ item.path }}"
       loop: "{{ lookup('community.general.filetree', 'configs/files/ghostty/', wantlist=True) | selectattr('state', '==', 'file') }}"
