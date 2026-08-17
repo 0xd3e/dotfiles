@@ -5,4 +5,4 @@ font-family-bold-italic = "Iosevka Term Semibold Extended Italic"
 font-size = 15
 theme = "light:dayfox,dark:nightfox"
 copy-on-select = "clipboard"
-command = "{{ (ansible_architecture == 'arm64') | ternary ('/opt/homebrew/bin/fish', '/usr/local/bin/fish') }}"
+command = "{{ (ansible_facts['architecture'] == 'arm64') | ternary ('/opt/homebrew/bin/fish', '/usr/local/bin/fish') }}"
